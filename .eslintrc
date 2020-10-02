@@ -1,0 +1,29 @@
+{
+  "env": {
+    "browser": true,
+    "es2021": true
+  },
+  "extends": ["eslint:recommended"],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "ecmaVersion": 12
+  },
+  "plugins": ["react", "@typescript-eslint"],
+  "rules": {},
+  "overrides": [
+    {
+      "files": ["src/**/*.ts"],
+      "extends": [
+        "plugin:react/recommended",
+        "plugin:@typescript-eslint/recommended"
+      ]
+    },
+    {
+      "files": ["config/**/*.js", "tailwind.config.js", "postcss.config.js"],
+      "env": { "commonjs": true, "node": true }
+    }
+  ]
+}
