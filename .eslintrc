@@ -15,6 +15,11 @@
   "rules": {},
   "overrides": [
     {
+      "files": ["server/**/*.js"],
+      "extends": [],
+      "env": { "node": true, "commonjs": true }
+    },
+    {
       "files": ["src/**/*.ts"],
       "extends": [
         "plugin:react/recommended",

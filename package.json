@@ -29,7 +29,9 @@
     "node": "12.18.4",
     "yarn": "1.22.10"
   },
-  "dependencies": {},
+  "dependencies": {
+    "json-server": "^0.16.2"
+  },
   "name": "professional-ts",
   "version": "0.0.0",
   "description": "Mike's \"professional TypeScript\" course",
