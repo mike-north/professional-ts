@@ -1,4 +1,4 @@
-import * as React from "react";
+import * as React from 'react';
 
 const Footer: React.FunctionComponent = () => (
   <footer className="pb-6 px-4 flex-none channel-footer">

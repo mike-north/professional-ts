@@ -1,9 +1,9 @@
-import * as React from "react";
-import { useParams } from "react-router";
-import ChannelFooter from "./Channel/Footer";
-import ChannelHeader from "./Channel/Header";
-import ChannelMessage from "./Channel/Message";
-import { Route, useRouteMatch } from "react-router-dom";
+import * as React from 'react';
+import { useParams } from 'react-router';
+import ChannelFooter from './Channel/Footer';
+import ChannelHeader from './Channel/Header';
+import ChannelMessage from './Channel/Message';
+import { Route, useRouteMatch } from 'react-router-dom';
 const Channel: React.FunctionComponent = () => {
   const { channelId } = useParams<{ channelId: string }>();
   const { path } = useRouteMatch();

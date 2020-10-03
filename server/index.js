@@ -1,13 +1,14 @@
-const Bundler = require("parcel-bundler");
-const app = require("express")();
-const jsonServer = require("json-server");
+// @ts-check
+const Bundler = require('parcel-bundler');
+const app = require('express')();
+const jsonServer = require('json-server');
 const server = jsonServer.create();
-const { setupAPI } = require("./api-server");
-const { join } = require("path");
+const { setupAPI } = require('./api-server');
+const { join } = require('path');
 
 setupAPI(server);
 
-const file = join(__dirname, "..", "index.html"); // Pass an absolute path to the entrypoint here
+const file = join(__dirname, '..', 'index.html'); // Pass an absolute path to the entrypoint here
 const options = {}; // See options section of api docs, for the possibilities
 
 // Initialize a new bundler using a file and options

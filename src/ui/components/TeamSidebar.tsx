@@ -1,14 +1,12 @@
-import * as React from "react";
-import { useParams } from "react-router-dom";
-import ChannelLink from "./TeamSidebar/ChannelLink";
+import * as React from 'react';
+import { useParams } from 'react-router-dom';
+import ChannelLink from './TeamSidebar/ChannelLink';
 
 const TeamSidebar: React.FunctionComponent = () => {
-  const { teamId, channelId } = useParams<{
+  const { teamId } = useParams<{
     teamId: string;
-    channelId: string;
   }>();
 
-  console.log({ teamId, channelId });
   return (
     <section className="team-sidebar bg-indigo-800 text-purple-300 flex-none md:w-64 sm:w-48 pb-6 flex flex-col">
       <header className="team-sidebar__header text-white mb-2 mt-3 px-4 flex justify-between">

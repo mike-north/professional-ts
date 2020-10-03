@@ -1,7 +1,7 @@
-import * as React from "react";
-import { Redirect, Route, Switch, useParams } from "react-router-dom";
-import Channel from "./Channel";
-import TeamSidebar from "./TeamSidebar";
+import * as React from 'react';
+import { Redirect, Route, Switch, useParams } from 'react-router-dom';
+import Channel from './Channel';
+import TeamSidebar from './TeamSidebar';
 
 const Team: React.FunctionComponent = () => {
   const { teamId } = useParams<{

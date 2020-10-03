@@ -1,8 +1,8 @@
-import * as React from "react";
-import { Link, useRouteMatch } from "react-router-dom";
+import * as React from 'react';
+import { Link, useRouteMatch } from 'react-router-dom';
 
 const TeamLink: React.FunctionComponent<{ to: string }> = ({ to }) => {
-  let match = useRouteMatch({
+  const match = useRouteMatch({
     path: to,
   });
 
@@ -10,8 +10,8 @@ const TeamLink: React.FunctionComponent<{ to: string }> = ({ to }) => {
     <Link
       to={to}
       className={
-        "team-selector__team-button cursor-pointer rounded-lg p-2 pl-4 inline-block sm:block no-underline opacity-25 " +
-        (match ? "opacity-100" : "")
+        'team-selector__team-button cursor-pointer rounded-lg p-2 pl-4 inline-block sm:block no-underline opacity-25 ' +
+        (match ? 'opacity-100' : '')
       }
     >
       <div className="bg-white h-12 w-12 flex items-center justify-center text-black text-2xl font-semibold rounded-lg mb-1 overflow-hidden">

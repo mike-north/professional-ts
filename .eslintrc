@@ -12,7 +12,7 @@
     "ecmaVersion": 12
   },
   "plugins": ["react", "@typescript-eslint"],
-  "rules": {},
+  "rules": { "prefer-const": "error" },
   "overrides": [
     {
       "files": ["server/**/*.js"],
@@ -22,8 +22,10 @@
     {
       "files": ["src/**/*.ts"],
       "extends": [
+        "eslint:recommended",
         "plugin:react/recommended",
-        "plugin:@typescript-eslint/recommended"
+        "plugin:@typescript-eslint/recommended",
+        "plugin:@typescript-eslint/recommended-requiring-type-checking"
       ]
     },
     {

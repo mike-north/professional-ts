@@ -1,4 +1,4 @@
-import * as React from "react";
+import * as React from 'react';
 
 const Header: React.FunctionComponent = () => (
   <header className="border-b flex px-6 py-2 items-center flex-row channel-header">
