@@ -1,10 +1,12 @@
 // @ts-check
 const Bundler = require('parcel-bundler');
-const app = require('express')();
+const e = require('express');
 const jsonServer = require('json-server');
 const server = jsonServer.create();
 const { setupAPI } = require('./api-server');
 const { join } = require('path');
+
+const app = e();
 
 setupAPI(server);
 
@@ -14,7 +16,7 @@ const options = {}; // See options section of api docs, for the possibilities
 // Initialize a new bundler using a file and options
 const bundler = new Bundler(file, options);
 
-// Let express use the bundler middleware, this will let Parcel handle every request over your express server
+app.use('/assets', e.static(join(__dirname, '..', 'assets')));
 app.use(server);
 app.use(bundler.middleware());
 

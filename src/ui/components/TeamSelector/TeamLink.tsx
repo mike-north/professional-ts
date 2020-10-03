@@ -1,7 +1,17 @@
 import * as React from 'react';
 import { Link, useRouteMatch } from 'react-router-dom';
 
-const TeamLink: React.FunctionComponent<{ to: string }> = ({ to }) => {
+export interface ITeamLink {
+  to: string;
+  name: string;
+  iconUrl: string;
+}
+
+const TeamLink: React.FunctionComponent<ITeamLink> = ({
+  to,
+  name,
+  iconUrl,
+}) => {
   const match = useRouteMatch({
     path: to,
   });
@@ -17,8 +27,8 @@ const TeamLink: React.FunctionComponent<{ to: string }> = ({ to }) => {
       <div className="bg-white h-12 w-12 flex items-center justify-center text-black text-2xl font-semibold rounded-lg mb-1 overflow-hidden">
         <img
           className="team-selector__team-logo"
-          src="https://gravatar.com/avatar/0ca1be2eaded508606982feb9fea8a2b?s=200&amp;d=https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/LinkedIn_logo_initials.png/240px-LinkedIn_logo_initials.png"
-          alt="Join the LinkedIn chat"
+          src={iconUrl}
+          alt={`Join the ${name} chat`}
         />
       </div>
     </Link>

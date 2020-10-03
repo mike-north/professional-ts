@@ -1,11 +1,18 @@
 import * as React from 'react';
 import TeamLink from './TeamSelector/TeamLink';
 
-const TeamSelector: React.FunctionComponent = () => (
+export interface ITeamSelector {
+  teams: { name: string; id: string; iconUrl: string }[];
+}
+
+const TeamSelector: React.FunctionComponent<ITeamSelector> = (
+  props: ITeamSelector,
+) => (
   <nav className="team-selector bg-indigo-900 border-indigo-900 border-r-2 pt-2 text-purple-300 flex-none block">
-    <TeamLink to="/team/ms" />
-    <TeamLink to="/team/linkedin" />
-    <TeamLink to="/team/fem" />
+    {props.teams.map((team) => {
+      const { id, ...rest } = team;
+      return <TeamLink key={id} to={`/team/${id}`} {...rest} />;
+    })}
 
     <div className="team-selector__add-team-button cursor-pointer p-4 inline-block sm:block">
       <div className="bg-white opacity-25 h-12 w-12 flex items-center justify-center text-black text-2xl font-semibold rounded-lg mb-1 overflow-hidden">

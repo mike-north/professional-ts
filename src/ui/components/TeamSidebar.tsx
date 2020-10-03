@@ -2,6 +2,16 @@ import * as React from 'react';
 import { useParams } from 'react-router-dom';
 import ChannelLink from './TeamSidebar/ChannelLink';
 
+export interface ITeamSidebar {
+  team: {
+    name: string;
+    channels: {
+      name: string;
+      id: string;
+    }[];
+  };
+}
+
 const TeamSidebar: React.FunctionComponent = () => {
   const { teamId } = useParams<{
     teamId: string;
