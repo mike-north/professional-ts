@@ -1,5 +1,4 @@
 import * as React from 'react';
-// import { useParams } from 'react-router-dom';
 import { ITeam } from '../../types';
 import ChannelLink from './TeamSidebar/ChannelLink';
 
@@ -12,7 +11,7 @@ const TeamSidebar: React.FunctionComponent<ITeamSidebar> = ({ team }) => {
     <section className="team-sidebar h-full bg-indigo-800 text-purple-300 flex-none md:w-64 sm:w-48 pb-6 flex flex-col">
       <header className="team-sidebar__header text-white mb-2 mt-3 px-4 flex justify-between">
         <div className="flex-auto">
-          <h1 className="team-sidebar__team-name font-semibold text-xl leading-tight mb-1 truncate">
+          <h1 className="team-sidebar__team-name font-semibold text-xl leading-tight mt-2 mb-1 truncate">
             {team.name}
           </h1>
 
@@ -25,7 +24,7 @@ const TeamSidebar: React.FunctionComponent<ITeamSidebar> = ({ team }) => {
               <circle cx="10" cy="10" r="10"></circle>
             </svg>
             <span className="team-sidebar__current-user-name text-white opacity-75 text-sm">
-              Mike North
+              Chris User
             </span>
           </div>
         </div>

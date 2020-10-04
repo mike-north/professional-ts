@@ -13,10 +13,12 @@ export function useAsyncDataEffect<T>(
   const { setter, stateName } = options;
   useEffect(() => {
     promise = new Promise<T>((resolve, reject) => {
-      void getData().then((jsonData) => {
-        if (cancelled) return;
-        else resolve(jsonData);
-      });
+      void getData()
+        .then((jsonData) => {
+          if (cancelled) return;
+          else resolve(jsonData);
+        })
+        .catch(reject);
     });
     void promise.then((data) => {
       if (!cancelled) {

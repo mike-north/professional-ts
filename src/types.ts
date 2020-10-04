@@ -10,8 +10,17 @@ export interface ITeam {
   iconUrl: string;
   channels: IChannel[];
 }
+export interface IUser {
+  id: number;
+  name: string;
+  username: string;
+  iconUrl: string;
+}
+
 export interface IMessage {
   channelId: string;
   id: string;
+  user: IUser;
   body: string;
+  createdAt: string;
 }

@@ -7,18 +7,9 @@ const SelectedChannel: React.FunctionComponent<{
   channels: IChannel[];
   match: match<any> | null;
 }> = ({ match, channels }) => {
-  if (!channels)
-    return (
-      <main className="flex-1 flex flex-col bg-white overflow-hidden channel">
-        <p>No channels</p>
-      </main>
-    );
-  if (!match)
-    return (
-      <main className="flex-1 flex flex-col bg-white overflow-hidden channel">
-        <p>No URL match</p>
-      </main>
-    );
+  if (!channels) throw new Error('no channels');
+  if (!match) throw new Error('no match');
+
   const { params } = match;
   if (!match) return <p>No match params</p>;
   const { channelId: selectedChannelId } = params;

@@ -176,7 +176,7 @@
   ],
   "messages": [
     {
-      "teamId": "li",
+      "teamId": "linkedin",
       "channelId": "compliments",
       "userId": 2,
       "createdAt": "2019-04-21T17:48:33.421Z",
@@ -184,7 +184,7 @@
       "id": 1
     },
     {
-      "teamId": "li",
+      "teamId": "linkedin",
       "channelId": "compliments",
       "userId": 1,
       "createdAt": "2019-04-21T17:54:38.556Z",
@@ -192,7 +192,7 @@
       "id": 2
     },
     {
-      "teamId": "li",
+      "teamId": "linkedin",
       "channelId": "general",
       "userId": 2,
       "createdAt": "2019-04-21T17:55:08.713Z",
@@ -200,7 +200,7 @@
       "id": 3
     },
     {
-      "teamId": "li",
+      "teamId": "linkedin",
       "channelId": "general",
       "userId": 1,
       "createdAt": "2019-04-21T18:36:30.995Z",
@@ -208,7 +208,7 @@
       "id": 11
     },
     {
-      "teamId": "li",
+      "teamId": "linkedin",
       "channelId": "general",
       "userId": 1,
       "createdAt": "2019-04-21T18:40:34.648Z",
@@ -216,7 +216,7 @@
       "id": 12
     },
     {
-      "teamId": "li",
+      "teamId": "linkedin",
       "channelId": "general",
       "userId": 1,
       "body": "wdw",
@@ -224,7 +224,7 @@
       "id": 13
     },
     {
-      "teamId": "li",
+      "teamId": "linkedin",
       "channelId": "general",
       "userId": 1,
       "body": "awqwdqwqwdq",
@@ -233,7 +233,7 @@
       "id": 14
     },
     {
-      "teamId": "li",
+      "teamId": "linkedin",
       "channelId": "general",
       "userId": 1,
       "body": "qdq",
@@ -241,7 +241,7 @@
       "id": 15
     },
     {
-      "teamId": "li",
+      "teamId": "linkedin",
       "channelId": "general",
       "userId": 1,
       "body": "w",
@@ -249,7 +249,7 @@
       "id": 16
     },
     {
-      "teamId": "li",
+      "teamId": "linkedin",
       "channelId": "general",
       "userId": 2,
       "body": "Would you like to join my professional network?",
@@ -257,7 +257,7 @@
       "id": 17
     },
     {
-      "teamId": "li",
+      "teamId": "linkedin",
       "channelId": "general",
       "userId": 1,
       "body": "Hello developer, I looked at your profile and am impressed by your 14 years of COBOL experience. Are you happy in your current role?",

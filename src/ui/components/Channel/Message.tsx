@@ -1,18 +1,11 @@
 import * as React from 'react';
 import { formatTimestamp } from '../../../utils/date';
 
-export interface IMessageProps {
-  user: {
-    name: string;
-    avatarUrl: string;
-  };
+const Message: React.FunctionComponent<{
+  user: { name: string; iconUrl: string };
   body: string;
   date: Date;
-}
-
-const Message: React.FunctionComponent<IMessageProps> = (
-  props: IMessageProps,
-) => (
+}> = ({ user, date, body }) => (
   <div
     className="flex items-start px-6 py-2 text-sm hover-target hover:bg-gray-100 message"
     role="listitem"
@@ -20,8 +13,8 @@ const Message: React.FunctionComponent<IMessageProps> = (
     <figure className="w-10 h-10 rounded overflow-hidden mr-3">
       <img
         className="message__user-avatar"
-        src={props.user.avatarUrl}
-        alt={props.user.name}
+        src={user.iconUrl}
+        alt={user.name}
       />
     </figure>
 
@@ -31,15 +24,15 @@ const Message: React.FunctionComponent<IMessageProps> = (
           href="#"
           className="message__user-name text-black font-bold no-underline hover:underline"
         >
-          {props.user.name}
+          {user.name}
         </a>
         <span className="sr-only">at</span>
         <time className="message__timestamp text-gray-500 text-xs font-normal ml-1">
-          {formatTimestamp(props.date)}
+          {formatTimestamp(date)}
         </time>
       </h5>
 
-      <p className="message__body text-black leading-normal">{props.body}</p>
+      <p className="message__body text-black leading-normal">{body}</p>
     </div>
 
     <button

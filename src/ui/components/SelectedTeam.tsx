@@ -7,14 +7,18 @@ const SelectedTeam: React.FunctionComponent<{
   teams: ITeam[];
   match: match<any> | null;
 }> = ({ match, teams }) => {
-  if (!match) return <p>No URL match</p>;
+  if (!match) throw new Error('no match');
+
   const { params } = match;
-  if (!match) return <p>No match params</p>;
+  if (!params) throw new Error('no match params');
+
   const { teamId: selectedTeamId } = params;
-  if (!selectedTeamId) return <p>Invalid teamId</p>;
+  if (!selectedTeamId) throw new Error(`undefined teamId`);
+
   const selectedTeam = teams.find((t) => t.id === selectedTeamId);
   if (!selectedTeam)
-    return <p>Invalid could not find team with id {selectedTeamId}</p>;
+    throw new Error(`Invalid could not find team with id {selectedTeamId}`);
+
   return <Team team={selectedTeam} />;
 };
 

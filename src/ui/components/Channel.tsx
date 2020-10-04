@@ -18,8 +18,8 @@ const Channel: React.FunctionComponent<IChannelProps> = ({ channel }) => {
     stateName: 'messages',
     otherStatesToMonitor: [channel],
   });
-  if (!messages || messages.length === 0)
-    return <Loading message="Loading messages" />;
+  if (!messages) return <Loading message="Loading messages" />;
+  if (messages.length === 0) return <Loading message="No messages" />;
   console.log(
     `%c CHANNEL render: ${channel.name}`,
     'background-color: purple; color: white',
@@ -27,26 +27,21 @@ const Channel: React.FunctionComponent<IChannelProps> = ({ channel }) => {
   return (
     <main className="flex-1 flex flex-col bg-white overflow-hidden channel">
       <ChannelHeader title={channel.name} description={channel.description} />
-      {/* Channel Message List  */}
       <div
         className="py-4 flex-1 overflow-y-scroll channel-messages-list"
         role="list"
       >
-        {messages?.map((m) => (
+        {messages.map((m) => (
           <ChannelMessage
             key={m.id}
             body={m.body}
-            date={new Date('October 13 2020')}
-            user={{
-              name: 'Lisa',
-              avatarUrl:
-                'https://gravatar.com/avatar/96c332a96737c6668906232e39cb16ef?s=200',
-            }}
+            date={new Date(m.createdAt)}
+            user={m.user}
           />
         ))}
       </div>
 
-      <ChannelFooter />
+      <ChannelFooter channel={channel} />
     </main>
   );
 };

@@ -1,4 +1,4 @@
-import { isTeam, isTeamArray, isTypedArray } from '../type-guards';
+import { isTeam, isTypedArray } from '../type-guards';
 import { ITeam } from '../types';
 import { apiCall } from '../utils/networking';
 

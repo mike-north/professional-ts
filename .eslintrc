@@ -9,12 +9,19 @@
     "ecmaFeatures": {
       "jsx": true
     },
-    "ecmaVersion": 12,
-    "project": "tsconfig.json"
+    "ecmaVersion": 12
   },
   "plugins": ["react", "@typescript-eslint"],
   "rules": { "prefer-const": "error" },
   "overrides": [
+    {
+      "parserOptions": {
+        "project": "tsconfig.json"
+      },
+      "files": ["tests/**/*.ts", "tests/**/*.tsx"],
+      "extends": [],
+      "env": { "node": true, "jest": true }
+    },
     {
       "files": ["server/**/*.js"],
       "extends": [],
@@ -22,6 +29,9 @@
     },
     {
       "files": ["src/**/*.ts"],
+      "parserOptions": {
+        "project": "tsconfig.json"
+      },
       "extends": [
         "eslint:recommended",
         "plugin:react/recommended",
@@ -30,7 +40,12 @@
       ]
     },
     {
-      "files": ["config/**/*.js", "tailwind.config.js", "postcss.config.js"],
+      "files": [
+        "config/**/*.js",
+        "babel.config.js",
+        "tailwind.config.js",
+        "postcss.config.js"
+      ],
       "env": { "commonjs": true, "node": true }
     }
   ]

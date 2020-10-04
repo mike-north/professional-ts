@@ -14,7 +14,7 @@ const TeamLink: React.FunctionComponent<ITeamLink> = ({ team }) => {
 
   return (
     <Link
-      to={`/team/${team.id}`}
+      to={`/team/${team.id}/channel/${team.channels[0].id}`}
       className={
         'team-selector__team-button cursor-pointer rounded-lg p-2 pl-4 inline-block sm:block no-underline opacity-25 ' +
         (match ? 'opacity-100' : '')
