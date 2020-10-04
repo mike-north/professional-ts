@@ -53,6 +53,7 @@ function setupAPI(server) {
   server.use(addDateToPost);
   server.use(
     jsonServer.rewriter({
+      '/api/teams': '/api/teams?_embed=channels',
       '/api/teams/:id': '/api/teams/:id?_embed=channels',
       '/api/teams/:id/channels': '/api/channels?teamId=:id',
       '/api/teams/:id/channels/:channelId':

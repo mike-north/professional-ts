@@ -1,57 +1,43 @@
 import * as React from 'react';
-import {
-  BrowserRouter as Router,
-  Redirect,
-  Route,
-  Switch,
-} from 'react-router-dom';
-import { apiCall } from '../utils/networking';
-import Team from './components/Team';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { getAllTeams } from '../data/teams';
+import { ITeam } from '../types';
+import { useAsyncDataEffect } from '../utils/api';
+import Loading from './components/Loading';
+import SelectedTeam from './components/SelectedTeam';
 import TeamSelector from './components/TeamSelector';
 
-const { useState, useEffect } = React;
-
-interface ITeam {
-  name: string;
-  id: string;
-  iconUrl: string;
-}
-
-function isTeam(arg: any): arg is ITeam {
-  return (
-    typeof arg.name === 'string' &&
-    typeof arg.id === 'string' &&
-    typeof arg.iconUrl === 'string'
-  );
-}
-
-function assertIsTeamArray(arg: any): asserts arg is ITeam[] {
-  if (!Array.isArray(arg))
-    throw new Error(`Expected array\nfound: ${JSON.stringify(arg)}`);
-  const validated = arg.filter(isTeam);
-  if (validated.length < arg.length)
-    throw new Error(`Expected array of ITeams\nfound: ${JSON.stringify(arg)}`);
-}
+const { useState } = React;
 
 const App: React.FunctionComponent = () => {
-  const [teams, setTeams] = useState<ITeam[]>([]);
-  useEffect(() => {
-    apiCall('teams').then((teamData) => {
-      assertIsTeamArray(teamData);
-      setTeams(teamData);
-    });
-  }, ['teams']);
+  const [teams, setTeams] = useState<ITeam[]>();
 
+  useAsyncDataEffect(() => getAllTeams(), {
+    setter: setTeams,
+    stateName: 'teams',
+  });
+  if (!teams) return <Loading message="Loading teams" />;
   return (
     <Router>
       <div className="flex flex-col sm:flex-row w-full h-full">
         <TeamSelector teams={teams} />
         <Switch>
-          <Redirect exact from="/" to="/team/linkedin" />
-          <Redirect exact from="/team" to="/team/linkedin" />
-          <Route path="/team/:teamId">
-            <Team />
+          <Route exact path="/">
+            <section className="m-12 text-xl">
+              <h3>Please select a team</h3>
+            </section>
           </Route>
+          <Route exact path="/team">
+            <section className="m-12 text-xl">
+              <h3>Please select a team</h3>
+            </section>
+          </Route>
+          <Route
+            path="/team/:teamId"
+            children={({ match }) => (
+              <SelectedTeam match={match} teams={teams} />
+            )}
+          />
         </Switch>
       </div>
     </Router>

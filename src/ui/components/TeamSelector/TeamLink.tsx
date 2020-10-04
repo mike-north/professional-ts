@@ -1,24 +1,20 @@
 import * as React from 'react';
 import { Link, useRouteMatch } from 'react-router-dom';
+import { ITeam } from '../../../types';
 
 export interface ITeamLink {
-  to: string;
-  name: string;
-  iconUrl: string;
+  team: ITeam;
 }
 
-const TeamLink: React.FunctionComponent<ITeamLink> = ({
-  to,
-  name,
-  iconUrl,
-}) => {
+const TeamLink: React.FunctionComponent<ITeamLink> = ({ team }) => {
   const match = useRouteMatch({
-    path: to,
+    path: `/team/${team.id}`,
+    exact: false,
   });
 
   return (
     <Link
-      to={to}
+      to={`/team/${team.id}`}
       className={
         'team-selector__team-button cursor-pointer rounded-lg p-2 pl-4 inline-block sm:block no-underline opacity-25 ' +
         (match ? 'opacity-100' : '')
@@ -27,7 +23,7 @@ const TeamLink: React.FunctionComponent<ITeamLink> = ({
       <div className="bg-white h-12 w-12 flex items-center justify-center text-black text-2xl font-semibold rounded-lg mb-1 overflow-hidden">
         <img
           className="team-selector__team-logo"
-          src={iconUrl}
+          src={team.iconUrl}
           alt={`Join the ${name} chat`}
         />
       </div>

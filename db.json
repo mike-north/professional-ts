@@ -137,6 +137,12 @@
       "teamId": "linkedin"
     },
     {
+      "id": "general",
+      "name": "general",
+      "description": "LinkedIn general chat",
+      "teamId": "linkedin"
+    },
+    {
       "id": "jobs",
       "name": "Job hunting",
       "description": "Discover companies that fit you.",

@@ -1,28 +1,19 @@
 import * as React from 'react';
-import { useParams } from 'react-router-dom';
+// import { useParams } from 'react-router-dom';
+import { ITeam } from '../../types';
 import ChannelLink from './TeamSidebar/ChannelLink';
 
 export interface ITeamSidebar {
-  team: {
-    name: string;
-    channels: {
-      name: string;
-      id: string;
-    }[];
-  };
+  team: ITeam;
 }
 
-const TeamSidebar: React.FunctionComponent = () => {
-  const { teamId } = useParams<{
-    teamId: string;
-  }>();
-
+const TeamSidebar: React.FunctionComponent<ITeamSidebar> = ({ team }) => {
   return (
-    <section className="team-sidebar bg-indigo-800 text-purple-300 flex-none md:w-64 sm:w-48 pb-6 flex flex-col">
+    <section className="team-sidebar h-full bg-indigo-800 text-purple-300 flex-none md:w-64 sm:w-48 pb-6 flex flex-col">
       <header className="team-sidebar__header text-white mb-2 mt-3 px-4 flex justify-between">
         <div className="flex-auto">
           <h1 className="team-sidebar__team-name font-semibold text-xl leading-tight mb-1 truncate">
-            LinkedIn {teamId}
+            {team.name}
           </h1>
 
           <div className="team-sidebar__current-user-indicator flex items-center mb-6">
@@ -72,9 +63,13 @@ const TeamSidebar: React.FunctionComponent = () => {
             </svg>
           </button>
         </div>
-
-        <ChannelLink to={`/team/${teamId}/channel/general`} />
-        <ChannelLink to={`/team/${teamId}/channel/jobs`} />
+        {team.channels.map((ch) => (
+          <ChannelLink
+            key={ch.id}
+            to={`/team/${team.id}/channel/${ch.id}`}
+            channel={ch}
+          />
+        ))}
       </nav>
       <footer className="mx-4 text-white">
         <button className="text-white rounded bg-gray-500 hover:bg-red-800 p-2 team-sidebar__logout-button">

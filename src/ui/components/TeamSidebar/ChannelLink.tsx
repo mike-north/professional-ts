@@ -1,15 +1,14 @@
 import * as React from 'react';
-import { Link, useParams, useRouteMatch } from 'react-router-dom';
+import { Link, useRouteMatch } from 'react-router-dom';
+import { IChannel } from '../../../types';
 
-const ChannelLink: React.FunctionComponent<{ to: string }> = ({ to }) => {
+const ChannelLink: React.FunctionComponent<{
+  to: string;
+  channel: IChannel;
+}> = ({ to, channel }) => {
   const match = useRouteMatch({
     path: to,
   });
-  const { teamId, channelId } = useParams<{
-    teamId: string;
-    channelId: string;
-  }>();
-  console.log({ teamId, channelId });
   return (
     <Link
       to={to}
@@ -19,7 +18,7 @@ const ChannelLink: React.FunctionComponent<{ to: string }> = ({ to }) => {
       }
     >
       <span aria-hidden="true"># </span>
-      {'foo'}
+      {channel.name}
     </Link>
   );
 };

@@ -1,26 +1,35 @@
 import * as React from 'react';
-import { Redirect, Route, Switch, useParams } from 'react-router-dom';
-import Channel from './Channel';
+import { Route, Switch } from 'react-router-dom';
+import { ITeam } from '../../types';
+import SelectedChannel from './SelectedChannel';
 import TeamSidebar from './TeamSidebar';
 
-const Team: React.FunctionComponent = () => {
-  const { teamId } = useParams<{
-    teamId: string;
-    channelId: string;
-  }>();
+export interface ITeamProps {
+  team: ITeam;
+}
 
+const Team: React.FunctionComponent<ITeamProps> = ({ team }) => {
+  console.log(
+    `%c TEAM render: ${team.name}`,
+    'background-color: blue; color: white',
+  );
+  const { channels } = team;
   return (
-    <Switch>
-      <Redirect
-        exact
-        from={`/team/${teamId}`}
-        to={`/team/${teamId}/channel/general`}
-      />
-      <Route exact to={`team/${teamId}/channel/:channelId`}>
-        <TeamSidebar />
-        <Channel />
-      </Route>
-    </Switch>
+    <div className="flex-1 flex">
+      <TeamSidebar team={team} />
+      <Switch>
+        <Route exact path={`/team/${team.id}`}>
+          <h3>Please select a channel</h3>
+        </Route>
+        <Route
+          exact
+          path={`/team/${team.id}/channel/:channelId`}
+          children={({ match }) => (
+            <SelectedChannel match={match} channels={channels} />
+          )}
+        />
+      </Switch>
+    </div>
   );
 };
 export default Team;
