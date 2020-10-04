@@ -1,4 +1,4 @@
-import { isTypedArray } from 'my-project';
+import { isTypedArray } from '.';
 
 // $ExpectType boolean
 isTypedArray(
@@ -10,4 +10,6 @@ isTypedArray(
 [1, 2, 3, '4', 'foo'].filter((x) => typeof x === 'string');
 
 // $ExpectType string[]
-[1, 2, 3, '4', 'foo'].filter((x): x is string => typeof x === 'string');
+[1, 2, 3, '4', 'foo'].filter(
+  (x): x is string => typeof x === 'string',
+);
