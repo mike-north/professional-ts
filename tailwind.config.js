@@ -5,47 +5,54 @@ module.exports = {
     removeDeprecatedGapUtilities: true,
     purgeLayersByDefault: true,
   },
-  purge: [],
+  purge: {
+    enabled: true,
+    content: ['index.html', './src/ui/**/*.tsx'],
+    mode: 'all',
+  },
   theme: {
     extend: {
       colors: {
-        ...colors,
-        ...{
-          black: colors.black,
-          white: colors.white,
+        black: colors.black,
+        white: colors.white,
 
-          red: {
-            ...colors.red,
-            ...{
-              400: '#ef5753',
-              100: '#fcebea',
-            },
+        red: {
+          ...colors.red,
+          ...{
+            400: '#ef5753',
+            100: '#fcebea',
           },
+        },
 
-          indigo: {
-            ...colors.indigo,
-            ...{
-              800: '#2f365f',
-              900: '#191e38',
-            },
+        indigo: {
+          ...colors.indigo,
+          ...{
+            800: '#2f365f',
+            900: '#191e38',
           },
+        },
 
-          purple: {
-            ...colors.purple,
-            ...{
-              300: '#d6bbfc',
-            },
+        purple: {
+          ...colors.purple,
+          ...{
+            300: '#d6bbfc',
           },
         },
       },
     },
   },
   variants: {
-    appearance: ['responsive', 'hover', 'focus', 'active', 'group-hover'],
+    appearance: [
+      'responsive',
+      'hover',
+      'focus',
+      'active',
+      'group-hover',
+    ],
     backgroundAttachment: ['responsive'],
     backgroundColors: ['responsive', 'hover', 'focus'],
     backgroundPosition: ['responsive'],
-    backgroundRepeat: ['responsive'],
+    backgroundRepeat: [],
     backgroundSize: ['responsive'],
     borderCollapse: [],
     borderColors: ['responsive', 'hover', 'focus'],

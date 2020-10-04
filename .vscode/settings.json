@@ -1,3 +1,21 @@
 {
-    "eslint.enable": true
+  "eslint.enable": true,
+  "files.associations": {
+    "api-extractor.json": "jsonc"
+  },
+  "vsicons.associations.files": [
+    {
+      "icon": "tsconfig",
+      "extensions": ["tsconfig.apidocs.json"],
+      "filename": true,
+      "format": "svg"
+    }
+  ],
+  "json.schemas": [
+    {
+      "fileMatch": ["tsconfig.apidocs.json"],
+
+      "url": "https://json.schemastore.org/tsconfig"
+    }
+  ]
 }
