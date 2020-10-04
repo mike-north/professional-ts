@@ -14,7 +14,9 @@ const SelectedChannel: React.FunctionComponent<{
   if (!match) return <p>No match params</p>;
   const { channelId: selectedChannelId } = params;
   if (!selectedChannelId) return <p>Invalid channelId</p>;
-  const selectedChannel = channels.find((c) => c.id === selectedChannelId);
+  const selectedChannel = channels.find(
+    (c) => c.id === selectedChannelId,
+  );
   if (!selectedChannel)
     return (
       <div>

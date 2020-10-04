@@ -11,13 +11,18 @@ export interface IChannelProps {
   channel: IChannel;
 }
 
-const Channel: React.FunctionComponent<IChannelProps> = ({ channel }) => {
+const Channel: React.FunctionComponent<IChannelProps> = ({
+  channel,
+}) => {
   const [messages, setMessages] = React.useState<IMessage[]>();
-  useAsyncDataEffect(() => getChannelMessages(channel.teamId, channel.id), {
-    setter: setMessages,
-    stateName: 'messages',
-    otherStatesToMonitor: [channel],
-  });
+  useAsyncDataEffect(
+    () => getChannelMessages(channel.teamId, channel.id),
+    {
+      setter: setMessages,
+      stateName: 'messages',
+      otherStatesToMonitor: [channel],
+    },
+  );
   if (!messages) return <Loading message="Loading messages" />;
   if (messages.length === 0) return <Loading message="No messages" />;
   console.log(
@@ -26,7 +31,10 @@ const Channel: React.FunctionComponent<IChannelProps> = ({ channel }) => {
   );
   return (
     <main className="flex-1 flex flex-col bg-white overflow-hidden channel">
-      <ChannelHeader title={channel.name} description={channel.description} />
+      <ChannelHeader
+        title={channel.name}
+        description={channel.description}
+      />
       <div
         className="py-4 flex-1 overflow-y-scroll channel-messages-list"
         role="list"

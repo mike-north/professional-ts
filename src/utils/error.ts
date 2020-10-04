@@ -10,8 +10,13 @@ function stringifyErrorValue(err: Error): string {
   ${err.stack || '(no stack trace information)'}`;
 }
 
-export function stringifyError(errorDescription: string, err: unknown): string {
+export function stringifyError(
+  errorDescription: string,
+  err: unknown,
+): string {
   return `${errorDescription}\n${
-    err instanceof Error ? stringifyErrorValue(err) : stringifyUnknownValue(err)
+    err instanceof Error
+      ? stringifyErrorValue(err)
+      : stringifyUnknownValue(err)
   }`;
 }

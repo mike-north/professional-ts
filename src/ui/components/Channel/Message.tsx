@@ -32,7 +32,9 @@ const Message: React.FunctionComponent<{
         </time>
       </h5>
 
-      <p className="message__body text-black leading-normal">{body}</p>
+      <p className="message__body text-black leading-normal">
+        {body}
+      </p>
     </div>
 
     <button

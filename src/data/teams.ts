@@ -25,27 +25,31 @@ export async function getAllTeams(): Promise<ITeam[]> {
   return await cachedAllTeamsList;
 }
 
-const cachedTeamRecords: { [k: string]: Promise<ITeam> | undefined } = {};
+const cachedTeamRecords: {
+  [k: string]: Promise<ITeam> | undefined;
+} = {};
 
 export async function getTeamById(id: string): Promise<ITeam> {
   let cached = cachedTeamRecords[id];
   if (typeof cached !== 'undefined') return await cached;
-  cached = cachedTeamRecords[id] = new Promise<ITeam>((resolve, reject) => {
-    void apiCall(`teams/${id}`)
-      .catch(reject)
-      .then((rawData) => {
-        if (!isTeam(rawData))
-          reject(
-            new Error(
-              `Unexpected API response. Expected ITeam\nFound: ${JSON.stringify(
-                rawData,
-                null,
-                '  ',
-              )}`,
-            ),
-          );
-        else resolve(rawData);
-      });
-  });
+  cached = cachedTeamRecords[id] = new Promise<ITeam>(
+    (resolve, reject) => {
+      void apiCall(`teams/${id}`)
+        .catch(reject)
+        .then((rawData) => {
+          if (!isTeam(rawData))
+            reject(
+              new Error(
+                `Unexpected API response. Expected ITeam\nFound: ${JSON.stringify(
+                  rawData,
+                  null,
+                  '  ',
+                )}`,
+              ),
+            );
+          else resolve(rawData);
+        });
+    },
+  );
   return await cached;
 }

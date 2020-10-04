@@ -1,5 +1,9 @@
 import * as React from 'react';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import {
+  BrowserRouter as Router,
+  Route,
+  Switch,
+} from 'react-router-dom';
 import { getAllTeams } from '../data/teams';
 import { ITeam } from '../types';
 import { useAsyncDataEffect } from '../utils/api';

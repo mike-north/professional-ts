@@ -12,24 +12,24 @@ export async function getChannelMessages(
 ): Promise<IMessage[]> {
   let cached = cachedMessageRecordArrays[channelId];
   if (typeof cached !== 'undefined') return await cached;
-  cached = cachedMessageRecordArrays[channelId] = new Promise<IMessage[]>(
-    (resolve, reject) => {
-      void apiCall(`teams/${teamId}/channels/${channelId}/messages`)
-        .catch(reject)
-        .then((rawData) => {
-          if (!isTypedArray(rawData, isMessage))
-            reject(
-              new Error(
-                `Unexpected API response. Expected IChannel\nFound: ${JSON.stringify(
-                  rawData,
-                  null,
-                  '  ',
-                )}`,
-              ),
-            );
-          else resolve(rawData);
-        });
-    },
-  );
+  cached = cachedMessageRecordArrays[channelId] = new Promise<
+    IMessage[]
+  >((resolve, reject) => {
+    void apiCall(`teams/${teamId}/channels/${channelId}/messages`)
+      .catch(reject)
+      .then((rawData) => {
+        if (!isTypedArray(rawData, isMessage))
+          reject(
+            new Error(
+              `Unexpected API response. Expected IChannel\nFound: ${JSON.stringify(
+                rawData,
+                null,
+                '  ',
+              )}`,
+            ),
+          );
+        else resolve(rawData);
+      });
+  });
   return await cached;
 }

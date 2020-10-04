@@ -17,7 +17,9 @@ const SelectedTeam: React.FunctionComponent<{
 
   const selectedTeam = teams.find((t) => t.id === selectedTeamId);
   if (!selectedTeam)
-    throw new Error(`Invalid could not find team with id {selectedTeamId}`);
+    throw new Error(
+      `Invalid could not find team with id {selectedTeamId}`,
+    );
 
   return <Team team={selectedTeam} />;
 };

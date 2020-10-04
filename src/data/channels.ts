@@ -2,7 +2,9 @@ import { isChannel } from '../type-guards';
 import { IChannel } from '../types';
 import { apiCall } from '../utils/networking';
 
-const cachedChannelRecords: { [k: string]: Promise<IChannel> | undefined } = {};
+const cachedChannelRecords: {
+  [k: string]: Promise<IChannel> | undefined;
+} = {};
 
 export async function getChannelById(id: string): Promise<IChannel> {
   let cached = cachedChannelRecords[id];
