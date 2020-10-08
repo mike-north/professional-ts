@@ -21,11 +21,12 @@ jobs:
     steps:
     - name: Checkout
       uses: actions/checkout@v2
-    - name: Cahche Setup
+    - name: Cache Setup
       uses: actions/cache@v2
       with:
         path: |
           ~/cache
+          ~/.dts/
           !~/cache/exclude
           **/node_modules
         key: ${{ runner.os }}-${{ hashFiles('**/lockfiles') }}
