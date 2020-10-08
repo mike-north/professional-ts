@@ -1,0 +1,42 @@
+
+name: TypeScript@Next tests
+
+on:
+  schedule:
+    # * is a special character in YAML so you have to quote this string
+    - cron:  '8 12 * * *'
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [14.x]
+
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+    - name: Cache Setup
+      uses: actions/cache@v2
+      with:
+        path: |
+          ~/cache
+          ~/.dts/
+          !~/cache/exclude
+          **/node_modules
+        key: ${{ runner.os }}-${{ hashFiles('**/lockfiles') }}
+      
+    - name: Use (Volta) Node.js ${{ matrix.node-version }}
+      uses: volta-cli/action@v1
+      with:
+        node-version: ${{ matrix.node-version }}
+    - name: Install dependencies
+      run: yarn
+    - name: Install latest TypeScript nightly
+      run: yarn add -D typescript@next
+    - name: Build
+      run: yarn build
+    - name: Run tests
+      run: yarn test
