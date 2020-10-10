@@ -3,7 +3,7 @@
     "build": "parcel build index.html",
     "dev": "node ./server/index.js",
     "lint": "eslint --ext .js,.ts,.jsx,.tsx",
-    "test": "concurrently -n 'jest,tsd,dtslint' yarn:test-jest yarn:test-tsd yarn:test-dtslint -c 'magenta,cyan,blue'",
+    "test": "yarn test-jest",
     "test-jest": "jest tests/components",
     "test-tsd": "tsd tests/types-tsd",
     "test-dtslint": "dtslint tests/types-dtslint",
