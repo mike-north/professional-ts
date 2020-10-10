@@ -30,6 +30,8 @@
     "date-fns": "^2.16.1",
     "dtslint": "^4.0.4",
     "eslint": "^7.10.0",
+    "eslint-config-prettier": "^6.12.0",
+    "eslint-plugin-prettier": "^3.1.4",
     "eslint-plugin-promise": "^4.2.1",
     "eslint-plugin-react": "^7.21.2",
     "eslint-plugin-sonarjs": "^0.5.0",

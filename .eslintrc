@@ -5,6 +5,9 @@
   },
   "extends": [
     "eslint:recommended",
+    "prettier",
+    "prettier/@typescript-eslint",
+    "prettier/react",
     "plugin:promise/recommended",
     "plugin:sonarjs/recommended"
   ],
@@ -15,8 +18,15 @@
     },
     "ecmaVersion": 12
   },
-  "plugins": ["react", "@typescript-eslint", "promise", "sonarjs"],
-  "rules": { "prefer-const": "error" },
+  "plugins": [
+    "prettier",
+    "react",
+    "@typescript-eslint",
+    "promise",
+    "sonarjs",
+    "prettier"
+  ],
+  "rules": { "prefer-const": "error", "prettier/prettier": "error" },
   "overrides": [
     {
       "parserOptions": {
