@@ -1,6 +1,7 @@
 {
   "compilerOptions": {
     "target": "ES2018",
+    "allowJs": true,
     "module": "commonjs" /* Specify module code generation: 'none', 'commonjs', 'amd', 'system', 'umd', 'es2015', 'es2020', or 'ESNext'. */,
     "strict": true /* Enable all strict type-checking options. */,
     "forceConsistentCasingInFileNames": true,
@@ -8,8 +9,7 @@
     "outDir": "dist",
     "declaration": true,
     "jsx": "react",
-    "moduleResolution": "Node",
-    "typeRoots": ["./types"]
+    "moduleResolution": "Node"
   },
-  "include": ["src", "tests"]
+  "include": ["src"]
 }

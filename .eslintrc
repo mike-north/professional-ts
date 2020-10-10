@@ -30,6 +30,11 @@
       "env": { "node": true, "jest": true }
     },
     {
+      "files": ["tests/**/*.js", "tests/**/*.jsx"],
+      "extends": [],
+      "env": { "node": true, "jest": true }
+    },
+    {
       "files": ["server/**/*.js"],
       "extends": [],
       "env": { "node": true, "commonjs": true }
