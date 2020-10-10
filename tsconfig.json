@@ -7,7 +7,9 @@
     "noEmit": true,
     "outDir": "dist",
     "declaration": true,
-    "jsx": "react"
+    "jsx": "react",
+    "moduleResolution": "Node",
+    "typeRoots": ["./types"]
   },
   "include": ["src", "tests"]
 }

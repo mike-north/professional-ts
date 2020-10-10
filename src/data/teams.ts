@@ -5,23 +5,18 @@ import { apiCall } from '../utils/networking';
 let cachedAllTeamsList: Promise<ITeam[]>;
 export async function getAllTeams(): Promise<ITeam[]> {
   if (typeof cachedAllTeamsList === 'undefined')
-    cachedAllTeamsList = new Promise<ITeam[]>((resolve, reject) => {
-      void apiCall('teams')
-        .catch(reject)
-        .then((rawData) => {
-          if (!isTypedArray(rawData, isTeam))
-            reject(
-              new Error(
-                `Unexpected API response. Expected ITeam[]\nFound: ${JSON.stringify(
-                  rawData,
-                  null,
-                  '  ',
-                )}`,
-              ),
-            );
-          else resolve(rawData);
-        });
+    cachedAllTeamsList = apiCall('teams').then((rawData) => {
+      if (!isTypedArray(rawData, isTeam))
+        throw new Error(
+          `Unexpected API response. Expected ITeam[]\nFound: ${JSON.stringify(
+            rawData,
+            null,
+            '  ',
+          )}`,
+        );
+      else return rawData;
     });
+
   return await cachedAllTeamsList;
 }
 
@@ -31,25 +26,19 @@ const cachedTeamRecords: {
 
 export async function getTeamById(id: string): Promise<ITeam> {
   let cached = cachedTeamRecords[id];
-  if (typeof cached !== 'undefined') return await cached;
-  cached = cachedTeamRecords[id] = new Promise<ITeam>(
-    (resolve, reject) => {
-      void apiCall(`teams/${id}`)
-        .catch(reject)
-        .then((rawData) => {
-          if (!isTeam(rawData))
-            reject(
-              new Error(
-                `Unexpected API response. Expected ITeam\nFound: ${JSON.stringify(
-                  rawData,
-                  null,
-                  '  ',
-                )}`,
-              ),
-            );
-          else resolve(rawData);
-        });
-    },
-  );
+  if (typeof cached === 'undefined')
+    cached = cachedTeamRecords[id] = apiCall(`teams/${id}`).then(
+      (rawData) => {
+        if (!isTeam(rawData))
+          throw new Error(
+            `Unexpected API response. Expected ITeam\nFound: ${JSON.stringify(
+              rawData,
+              null,
+              '  ',
+            )}`,
+          );
+        else return rawData;
+      },
+    );
   return await cached;
 }
