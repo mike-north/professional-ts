@@ -1,16 +1,9 @@
 import * as React from 'react';
-import { ITeam } from '../../types';
 import TeamLink from './TeamSelector/TeamLink';
 
-export interface ITeamSelector {
-  teams: ITeam[];
-}
-
-const TeamSelector: React.FunctionComponent<ITeamSelector> = (
-  props: ITeamSelector,
-) => (
+const TeamSelector = ({ teams }) => (
   <nav className="team-selector bg-indigo-900 border-indigo-900 border-r-2 pt-2 text-purple-300 flex-none block">
-    {props.teams.map((team) => {
+    {teams.map((team) => {
       const { id, ...rest } = team;
       return <TeamLink team={team} key={id} {...rest} />;
     })}

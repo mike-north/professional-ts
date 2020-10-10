@@ -1,15 +1,17 @@
 import { stringifyError } from './error';
 import HTTPError from './http-error';
 
-async function getJSON(
-  input: RequestInfo,
-  init?: RequestInit,
-): Promise<{ response: Response; json: unknown }> {
+/**
+ *
+ * @param {RequestInfo} input
+ * @param {RequestInit} [init]
+ */
+async function getJSON(input, init) {
   try {
     const response = await fetch(input, init);
-    const responseJSON = (await response.json()) as unknown;
+    const responseJSON = await response.json();
     return { response, json: responseJSON };
-  } catch (err: unknown) {
+  } catch (err) {
     throw new Error(
       stringifyError(
         `Networking/getJSON: An error was encountered while fetching ${JSON.stringify(
@@ -21,17 +23,19 @@ async function getJSON(
   }
 }
 
-export async function apiCall(
-  path: string,
-  init?: RequestInit,
-): Promise<unknown> {
-  let response: Response;
-  let json: unknown;
+/**
+ *
+ * @param {string} path
+ * @param {RequestInit} [init]
+ */
+export async function apiCall(path, init) {
+  let response;
+  let json;
   try {
     const jsonRespInfo = await getJSON(`/api/${path}`, init);
     response = jsonRespInfo.response;
     json = jsonRespInfo.json;
-  } catch (err: unknown) {
+  } catch (err) {
     if (err instanceof HTTPError) throw err;
     throw new Error(
       stringifyError(
