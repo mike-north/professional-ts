@@ -1,12 +1,16 @@
 import * as React from 'react';
 import { getChannelMessages } from '../../data/messages';
-import { IChannel, IMessage } from '../../types';
+import type { IChannel, IMessage } from '../../types';
 import { useAsyncDataEffect } from '../../utils/api';
 import ChannelFooter from './Channel/Footer';
 import ChannelHeader from './Channel/Header';
 import ChannelMessage from './Channel/Message';
 import Loading from './Loading';
 
+/**
+ * @see Channel
+ * @deprecated
+ */
 export interface IChannelProps {
   channel: IChannel;
 }
@@ -14,6 +18,7 @@ export interface IChannelProps {
 const Channel: React.FunctionComponent<IChannelProps> = ({
   channel,
 }) => {
+
   const [messages, setMessages] = React.useState<IMessage[]>();
   useAsyncDataEffect(
     () => getChannelMessages(channel.teamId, channel.id),

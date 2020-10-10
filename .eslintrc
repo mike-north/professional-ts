@@ -3,7 +3,11 @@
     "browser": true,
     "es2021": true
   },
-  "extends": ["eslint:recommended"],
+  "extends": [
+    "eslint:recommended",
+    "plugin:promise/recommended",
+    "plugin:sonarjs/recommended"
+  ],
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
     "ecmaFeatures": {
@@ -11,7 +15,7 @@
     },
     "ecmaVersion": 12
   },
-  "plugins": ["react", "@typescript-eslint"],
+  "plugins": ["react", "@typescript-eslint", "promise", "sonarjs"],
   "rules": { "prefer-const": "error" },
   "overrides": [
     {
@@ -19,7 +23,10 @@
         "project": "tsconfig.json"
       },
       "files": ["tests/**/*.ts", "tests/**/*.tsx"],
-      "extends": [],
+      "extends": [
+        "plugin:@typescript-eslint/recommended",
+        "plugin:@typescript-eslint/recommended-requiring-type-checking"
+      ],
       "env": { "node": true, "jest": true }
     },
     {

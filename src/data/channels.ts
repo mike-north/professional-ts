@@ -9,24 +9,19 @@ const cachedChannelRecords: {
 export async function getChannelById(id: string): Promise<IChannel> {
   let cached = cachedChannelRecords[id];
   if (typeof cached !== 'undefined') return await cached;
-  cached = cachedChannelRecords[id] = new Promise<IChannel>(
-    (resolve, reject) => {
-      void apiCall(`Channels/${id}`)
-        .catch(reject)
-        .then((rawData) => {
-          if (!isChannel(rawData))
-            reject(
-              new Error(
-                `Unexpected API response. Expected IChannel\nFound: ${JSON.stringify(
-                  rawData,
-                  null,
-                  '  ',
-                )}`,
-              ),
-            );
-          else resolve(rawData);
-        });
+  cached = cachedChannelRecords[id] = apiCall(`Channels/${id}`).then(
+    (rawData) => {
+      if (!isChannel(rawData))
+        throw new Error(
+          `Unexpected API response. Expected IChannel\nFound: ${JSON.stringify(
+            rawData,
+            null,
+            '  ',
+          )}`,
+        );
+      else return rawData;
     },
   );
+
   return await cached;
 }
