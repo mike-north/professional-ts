@@ -373,7 +373,7 @@ yarn lint
 
 should tell us that this is a problem. If properly configured, you may also see feedback right in your code editor as well
 
-![eslint error](./img/eslint-error.png)
+![eslint error](img/eslint-error.png)
 
 Undo the problematic code change, run `yarn lint` again and you should see no errors
 
