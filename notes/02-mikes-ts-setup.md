@@ -60,7 +60,7 @@ yarn eslint --init
 
 making the following choices:
 
-<ul>
+<dl>
     <dt>How would you like to use ESLint?</dt>
     <dd>To check syntax and find problems</dd>
     <dt>What type of modules does your project use</dt>
@@ -73,4 +73,4 @@ making the following choices:
     <dd>Node</dd>
     <dt>What format do you want your config file to be in?</dt>
     <dd>JSON</dd>
-</ul>
+</dl>
