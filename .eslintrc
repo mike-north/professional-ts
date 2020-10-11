@@ -56,6 +56,7 @@
      * SERVER SIDE CODE
      */
     {
+      "extends": ["plugin:node/recommended"],
       "files": [
         "config/**/*.js",
         "babel.config.js",

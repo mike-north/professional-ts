@@ -3,13 +3,10 @@ const jsonServer = require('json-server');
 const router = jsonServer.router('db.json');
 const middlewares = jsonServer.defaults();
 
-// eslint-disable-next-line no-unused-vars
-const e = require('express');
-
 /**
- * @param {e.Request} req
- * @param {e.Response} res
- * @param {e.NextFunction} next
+ * @param {import('express').Request} req
+ * @param {import('express').Response} res
+ * @param {import('express').NextFunction} next
  */
 function SINGULAR_MIDDLEWARE(req, res, next) {
   const _send = res.send;
@@ -34,9 +31,9 @@ function SINGULAR_MIDDLEWARE(req, res, next) {
 }
 
 /**
- * @param {e.Request} req
- * @param {e.Response} _res
- * @param {e.NextFunction} next
+ * @param {import('express').Request} req
+ * @param {import('express').Response} _res
+ * @param {import('express').NextFunction} next
  */
 function addDateToPost(req, _res, next) {
   if (req.method === 'POST') {
