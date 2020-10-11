@@ -3,7 +3,7 @@
     "build": "parcel build index.html",
     "dev": "node ./server/index.js",
     "lint": "eslint --ext .js,.ts,.jsx,.tsx",
-    "test": "concurrently -n 'jest,tsd,dtslint' yarn:test-jest yarn:test-tsd yarn:test-dtslint -c 'magenta,cyan,blue'",
+    "test": "yarn test-jest",
     "test-jest": "jest tests/components",
     "test-tsd": "tsd tests/types-tsd",
     "test-dtslint": "dtslint tests/types-dtslint",
@@ -11,6 +11,7 @@
     "api-docs": "api-documenter markdown"
   },
   "devDependencies": {
+    "@babel/plugin-proposal-class-properties": "^7.10.4",
     "@babel/preset-env": "^7.11.5",
     "@babel/preset-react": "^7.10.4",
     "@babel/preset-typescript": "^7.10.4",
@@ -30,6 +31,8 @@
     "date-fns": "^2.16.1",
     "dtslint": "^4.0.4",
     "eslint": "^7.10.0",
+    "eslint-config-prettier": "^6.12.0",
+    "eslint-plugin-prettier": "^3.1.4",
     "eslint-plugin-promise": "^4.2.1",
     "eslint-plugin-react": "^7.21.2",
     "eslint-plugin-sonarjs": "^0.5.0",
@@ -47,7 +50,6 @@
     "react-router-dom": "^5.2.0",
     "react-test-renderer": "^16.13.1",
     "sass": "^1.26.11",
-    "scripty": "^2.0.0",
     "tailwindcss": "^1.8.10",
     "tsd": "^0.13.1",
     "typescript": "^4.0.3"

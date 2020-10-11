@@ -1,14 +1,9 @@
 import * as React from 'react';
 import { Route, Switch } from 'react-router-dom';
-import { ITeam } from '../../types';
 import SelectedChannel from './SelectedChannel';
 import TeamSidebar from './TeamSidebar';
 
-export interface ITeamProps {
-  team: ITeam;
-}
-
-const Team: React.FunctionComponent<ITeamProps> = ({ team }) => {
+const Team  = ({ team }) => {
   console.log(
     `%c TEAM render: ${team.name}`,
     'background-color: blue; color: white',

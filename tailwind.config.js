@@ -7,7 +7,7 @@ module.exports = {
   },
   purge: {
     enabled: true,
-    content: ['index.html', './src/ui/**/*.tsx'],
+    content: ['index.html', './src/ui/**/*.jsx', './src/ui/**/*.tsx'],
     mode: 'all',
   },
   theme: {

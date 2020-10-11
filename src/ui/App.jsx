@@ -5,7 +5,6 @@ import {
   Switch,
 } from 'react-router-dom';
 import { getAllTeams } from '../data/teams';
-import { ITeam } from '../types';
 import { useAsyncDataEffect } from '../utils/api';
 import Loading from './components/Loading';
 import SelectedTeam from './components/SelectedTeam';
@@ -13,8 +12,8 @@ import TeamSelector from './components/TeamSelector';
 
 const { useState } = React;
 
-const App: React.FunctionComponent = () => {
-  const [teams, setTeams] = useState<ITeam[]>();
+const App = () => {
+  const [teams, setTeams] = useState();
 
   useAsyncDataEffect(() => getAllTeams(), {
     setter: setTeams,

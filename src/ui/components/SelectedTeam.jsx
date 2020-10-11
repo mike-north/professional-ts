@@ -1,12 +1,7 @@
 import * as React from 'react';
-import { match } from 'react-router-dom';
-import { ITeam } from '../../types';
 import Team from './Team';
 
-const SelectedTeam: React.FunctionComponent<{
-  teams: ITeam[];
-  match: match<any> | null;
-}> = ({ match, teams }) => {
+const SelectedTeam = ({ match, teams }) => {
   if (!match) throw new Error('no match');
 
   const { params } = match;
