@@ -60,3 +60,9 @@ few central themes:
 
 - We'll see first hand how bugs in these areas significantly weaken TypeScript's value as a tool
 - By the end of this course, you'll understand how to give these areas extra attention
+
+---
+
+<p align='right'>
+ <a href="./01-project-tour.md">Next: Project Tour ▶</a>
+</p>
