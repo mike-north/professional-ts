@@ -1,4 +1,8 @@
-[◀ Back: Intro](00-intro.md)
+<p align='left'>
+ <a href="00-intro.md">◀ Back: Intro</a>
+</p>
+
+---
 
 # Project tour and getting started
 
@@ -28,7 +32,5 @@ The database comes from your [`db.json`](../db.json) file, and the API code is l
 --- 
 
 <p align='right'>
-
-<img align='right' src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+P+/HgAFhAJ/wlseKgAAAABJRU5ErkJggg=="><a  href="./02-intro.md">Next ▶ </a>
-
+ <a href="./02-intro.md">Next ▶</a>
 </p>
