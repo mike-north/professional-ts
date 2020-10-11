@@ -1,5 +1,5 @@
 <p align='left'>
- <a href="01-project-tour.md">◀ Back: Project Tour</a>
+ <a href="03-app-vs-library-concerns.md">◀ Back: App vs. Library Concerns</a>
 </p>
 
 ---
@@ -717,9 +717,9 @@ index 8ab69a1..4ca8888 100644
 ## Parameters
 
 @@ -22,6 +22,7 @@ export declare function sum3(a: number, b: number, c: number): number;
-| a | number | first number |
-| b | number | second number |
-| c | number | third number |
+ | a | number | first number |
+ | b | number | second number |
+ | c | number | third number |
 +| d | number | fourth number |
 
 <b>Returns:</b>
@@ -739,5 +739,5 @@ without having to reach for more complicated tools like webpack!
 ---
 
 <p align='right'>
- <a href="./02-mikes-ts-setup.md">Next: Project vs. Library Concerns ▶</a>
+ <a href="./05-what-have-I-done.md">Next: ...What have I done? ▶</a>
 </p>

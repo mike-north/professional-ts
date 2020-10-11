@@ -31,5 +31,5 @@ The database comes from your [`db.json`](../db.json) file, and the API code is l
 ---
 
 <p align='right'>
- <a href="./02-mikes-ts-setup.md">Next: Mike's TS Setup ▶</a>
+ <a href="./02-recent-ts-features.md">Next: Recent TS Language Features ▶</a>
 </p>
