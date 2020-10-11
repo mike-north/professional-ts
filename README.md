@@ -26,6 +26,8 @@ Connection to github.com closed.
 
 Next, make sure you have installed [volta](http://volta.sh/) which ensures you have the right version of node and yarn for this project
 
+We also strongly recommend the use of [Visual Studio Code](https://code.visualstudio.com/) as an authoring tool. If you use something else, you're on your own.
+
 ### Clone
 
 Next, checkout a working copy of this project

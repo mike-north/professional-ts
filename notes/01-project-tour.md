@@ -28,8 +28,7 @@ The database comes from your [`db.json`](../db.json) file, and the API code is l
 
 **One thing you _absolutely will_ want to look at is the API documentation, which can be found in your [`API_EXAMPLES.http`](API_EXAMPLES.http) file**.
 
-
---- 
+---
 
 <p align='right'>
  <a href="./02-intro.md">Next ▶</a>
