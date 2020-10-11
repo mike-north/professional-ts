@@ -1,9 +1,10 @@
 import * as React from 'react';
-import { Route, Switch } from 'react-router-dom';
+import { match, Route, Switch } from 'react-router-dom';
+import { ITeam } from '../../types';
 import SelectedChannel from './SelectedChannel';
 import TeamSidebar from './TeamSidebar';
 
-const Team: React.FunctionComponent<any>  = ({ team }) => {
+const Team: React.FunctionComponent<{ team: ITeam }> = ({ team }) => {
   console.log(
     `%c TEAM render: ${team.name}`,
     'background-color: blue; color: white',
@@ -19,9 +20,11 @@ const Team: React.FunctionComponent<any>  = ({ team }) => {
         <Route
           exact
           path={`/team/${team.id}/channel/:channelId`}
-          children={({ match }) => (
-            <SelectedChannel match={match} channels={channels} />
-          )}
+          children={({
+            match,
+          }: {
+            match: match<{ channelId: string }>;
+          }) => <SelectedChannel match={match} channels={channels} />}
         />
       </Switch>
     </div>

@@ -7,7 +7,7 @@ import HTTPError from './http-error';
 async function getJSON(input: RequestInfo, init?: RequestInit) {
   try {
     const response = await fetch(input, init);
-    const responseJSON: any = await response.json();
+    const responseJSON = await response.json();
     return { response, json: responseJSON };
   } catch (err) {
     throw new Error(
@@ -24,8 +24,13 @@ async function getJSON(input: RequestInfo, init?: RequestInit) {
 /**
  *
  */
-export async function apiCall(path: string, init?: RequestInit) {
+export async function apiCall(
+  path: string,
+  init?: RequestInit,
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+): Promise<any> {
   let response;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   let json: any;
   try {
     const jsonRespInfo = await getJSON(`/api/${path}`, init);

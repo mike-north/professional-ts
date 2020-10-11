@@ -1,10 +1,12 @@
 import * as React from 'react';
 import {
   BrowserRouter as Router,
+  match,
   Route,
   Switch,
 } from 'react-router-dom';
 import { getAllTeams } from '../data/teams';
+import { ITeam } from '../types';
 import { useAsyncDataEffect } from '../utils/api';
 import Loading from './components/Loading';
 import SelectedTeam from './components/SelectedTeam';
@@ -12,10 +14,10 @@ import TeamSelector from './components/TeamSelector';
 
 const { useState } = React;
 
-const App: React.FunctionComponent<{}> = () => {
-  const [teams, setTeams] = useState();
+const App: React.FunctionComponent = () => {
+  const [teams, setTeams] = useState<ITeam[]>();
 
-  useAsyncDataEffect(() => getAllTeams(), {
+  useAsyncDataEffect(getAllTeams, {
     setter: setTeams,
     stateName: 'teams',
   });
@@ -37,9 +39,12 @@ const App: React.FunctionComponent<{}> = () => {
           </Route>
           <Route
             path="/team/:teamId"
-            children={({ match }) => (
-              <SelectedTeam match={match} teams={teams} />
-            )}
+            // eslint-disable-next-line react/no-children-prop
+            children={({
+              match,
+            }: {
+              match: match<{ teamId: string }>;
+            }) => <SelectedTeam match={match} teams={teams} />}
           />
         </Switch>
       </div>
