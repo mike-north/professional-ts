@@ -1,7 +1,8 @@
 import * as React from 'react';
 import { Link, useRouteMatch } from 'react-router-dom';
+import { ITeam } from '../../../types';
 
-const TeamLink: React.FunctionComponent<any> = ({ team }) => {
+const TeamLink: React.FunctionComponent<{ team: ITeam }> = ({ team }) => {
   const match = useRouteMatch({
     path: `/team/${team.id}`,
     exact: false,

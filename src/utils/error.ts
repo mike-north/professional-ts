@@ -16,7 +16,7 @@ function stringifyErrorValue(err: Error): string {
  * @param err
  *
  */
-export function stringifyError(errorDescription: string, err: any): string {
+export function stringifyError(errorDescription: string, err: unknown): string {
   return `${errorDescription}\n${
     err instanceof Error
       ? stringifyErrorValue(err)
