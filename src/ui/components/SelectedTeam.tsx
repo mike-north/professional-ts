@@ -1,7 +1,7 @@
 import * as React from 'react';
 import Team from './Team';
 
-const SelectedTeam = ({ match, teams }) => {
+const SelectedTeam: React.FunctionComponent<any> = ({ match, teams }) => {
   if (!match) throw new Error('no match');
 
   const { params } = match;
@@ -10,7 +10,7 @@ const SelectedTeam = ({ match, teams }) => {
   const { teamId: selectedTeamId } = params;
   if (!selectedTeamId) throw new Error(`undefined teamId`);
 
-  const selectedTeam = teams.find((t) => t.id === selectedTeamId);
+  const selectedTeam = teams.find((t: any) => t.id === selectedTeamId);
   if (!selectedTeam)
     throw new Error(
       `Invalid could not find team with id {selectedTeamId}`,

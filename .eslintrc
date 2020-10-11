@@ -26,7 +26,12 @@
     "sonarjs",
     "prettier"
   ],
-  "rules": { "prefer-const": "error", "prettier/prettier": "error" },
+  "rules": {
+    "prefer-const": "error",
+    "prettier/prettier": "error",
+    "@typescript-eslint/no-unsafe-assignment": "warn",
+    "@typescript-eslint/no-unsafe-return": "warn"
+  },
   "overrides": [
     {
       "parserOptions": {
@@ -53,6 +58,10 @@
       "files": ["src/**/*.ts"],
       "parserOptions": {
         "project": "tsconfig.json"
+      },
+      "rules": {
+        "@typescript-eslint/no-unsafe-assignment": "warn",
+        "@typescript-eslint/no-unsafe-return": "warn"
       },
       "extends": [
         "eslint:recommended",

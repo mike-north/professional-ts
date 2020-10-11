@@ -6,6 +6,7 @@
     "strict": true /* Enable all strict type-checking options. */,
     "forceConsistentCasingInFileNames": true,
     "noEmit": true,
+    "noImplicitAny": true,
     "outDir": "dist",
     "declaration": true,
     "jsx": "react",
