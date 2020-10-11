@@ -1,3 +1,5 @@
+[◀ Back: Intro](00-intro.md)
+
 # Project tour and getting started
 
 In this workshop we'll be working in the context of a simplified Slack app
@@ -21,3 +23,9 @@ There's a API and database in this project as well, but we won't be changing the
 The database comes from your [`db.json`](../db.json) file, and the API code is located in the [`server/`](../server/) folder.
 
 **One thing you _absolutely will_ want to look at is the API documentation, which can be found in your [`API_EXAMPLES.http`](API_EXAMPLES.http) file**.
+
+<p align="right">
+
+[Next ▶](02-intro.md)
+
+</p>
