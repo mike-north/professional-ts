@@ -141,6 +141,53 @@ and this change to tsconfig for step 1
 
 - Most react components can be typed as `React:FunctionComponent<any>`
 
+## Some Quick Tricks
+
+```sh
+# rename all JSX files in src/ to TSX
+find src -name '*.jsx' -exec bash -c 'git mv "$0" "${0%.jsx}.tsx"' "{}" \;
+# rename all JS files in src/ to TS
+find src -name '*.js' -exec bash -c 'git mv "$0" "${0%.js}.ts"' "{}" \;
+# rename all JSX files in src/ to TSX
+find tests -name '*.jsx' -exec bash -c 'git mv "$0" "${0%.jsx}.tsx"' "{}" \;
+# rename all JS files in tests/ to TS
+find tests -name '*.js' -exec bash -c 'git mv "$0" "${0%.js}.ts"' "{}" \;
+```
+
+and don't forget to make this small change to [`/index.html`](/index.html)
+
+```diff
+--- a/index.html
++++ b/index.html
+@@ -8,6 +8,6 @@
+   </head>
+   <body class="font-sans antialiased h-screen">
+     <div id="appContainer" class="w-full h-full"></div>
+-    <script src="src/index.js" type="text/javascript"></script>
++    <script src="src/index.ts" type="text/javascript"></script>
+   </body>
+ </html>
+```
+
+and this change to tsconfig for step 1
+
+```diff
+--- a/tsconfig.json
++++ b/tsconfig.json
+@@ -3,9 +3,10 @@
+     "target": "ES2018",
+     "allowJs": true,
+     "module": "commonjs" /* Specify module code generation: 'none', 'commonjs', 'amd', 'system', 'umd', 'es2015', 'es2020', or 'ESNext'. */,
+-    "strict": true /* Enable all strict type-checking options. */,
++    // "strict": true /* Enable all strict type-checking options. */,
+     "forceConsistentCasingInFileNames": true,
+     "noEmit": true,
++    "noImplicitAny": false,
+     "outDir": "dist",
+     "declaration": true,
+     "jsx": "react",
+```
+
 ---
 
 <p align='right'>
