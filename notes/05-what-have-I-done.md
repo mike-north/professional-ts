@@ -180,6 +180,6 @@ TS modules predate ES modules, but there’s tons of code out there that already
 ---
 
 <p align='right'>
- <a href="./03-app-vs-library-concerns.md">Next: App vs. Library Concerns ▶</a>
+ <a href="./06-converting-to-ts.md">Next: Converting to TypeScript ▶</a>
 </p>
 ```
