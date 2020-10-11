@@ -1,7 +1,11 @@
 {
   "env": {
-    "browser": true,
     "es2021": true
+  },
+  "settings": {
+    "react": {
+      "version": "detect"
+    }
   },
   "extends": [
     "eslint:recommended",
@@ -14,7 +18,8 @@
     "ecmaFeatures": {
       "jsx": true
     },
-    "ecmaVersion": 12
+    "ecmaVersion": 12,
+    "project": "tsconfig.eslint.json"
   },
   "plugins": [
     "react",
@@ -31,9 +36,11 @@
      * CLIENT SIDE CODE
      */
     {
-      "files": ["src/**/*.tsx?"],
-      "parserOptions": {
-        "project": "tsconfig.json"
+      "files": ["src/**/*.{ts,js,jsx,tsx}"],
+
+      "env": {
+        "browser": true,
+        "es2021": true
       },
       "rules": {
         "react/prop-types": "off",
@@ -62,10 +69,7 @@
      * TYPESCRIPT CODE
      */
     {
-      "parserOptions": {
-        "project": "tsconfig.json"
-      },
-      "files": ["{tests,src}/**/*.tsx?"],
+      "files": ["tests/**/*.{ts,tsx}"],
       "extends": [
         "prettier/@typescript-eslint",
         "plugin:@typescript-eslint/recommended",
@@ -81,12 +85,7 @@
      * TESTS
      */
     {
-      "files": [
-        "tests/**/*.js",
-        "tests/**/*.jsx",
-        "tests/**/*.tsx",
-        "tests/**/*.ts"
-      ],
+      "files": ["tests/**/*.{js,jsx,ts,tsx}"],
       "extends": [],
       "env": { "node": true, "jest": true }
     }

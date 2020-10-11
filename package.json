@@ -2,7 +2,7 @@
   "scripts": {
     "build": "parcel build index.html",
     "dev": "node ./server/index.js",
-    "lint": "eslint --ext .js,.ts,.jsx,.tsx",
+    "lint": "eslint src tests --ext .js,.ts,.jsx,.tsx",
     "test": "yarn test-jest",
     "test-jest": "jest tests/components",
     "test-tsd": "tsd tests/types-tsd",
