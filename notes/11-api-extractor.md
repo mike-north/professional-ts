@@ -162,7 +162,38 @@ You should see a few things happen
 You'll want to commit that `/etc` folder -- it's the "human-approved" API surface that
 future changes will be compared to. Do not commit the `/temp` folder to git (it should be ignored, if you followed `.gitignore`-related instructions above).
 
-Let's fix the errors in your console, it shouldn't take long
+Add a few npm-scripts to your [`package.json`](../package.json)
+
+```diff
+--- a/package.json
++++ b/package.json
+@@ -6,7 +6,9 @@
+     "test": "yarn test-jest && yarn test-tsd && yarn test-dtslint",
+     "test-jest": "jest tests/components",
+     "test-tsd": "tsd tests/types-tsd",
+-    "test-dtslint": "dtslint tests/types-dtslint"
++    "test-dtslint": "dtslint tests/types-dtslint",
++    "api-report": "tsc -b tsconfig.apidocs.json && yarn api-extractor run",
++    "api-docs": "api-documenter markdown -i temp -o docs"
+   },
+   "devDependencies": {
+```
+
+Now you should be able to run
+
+```sh
+# Update api report with any changes
+yarn update-api-report
+
+# Analyze the current state of the code, and
+# return 0 if api report is up to date
+yarn api-report
+
+# Extract the API information and generate docs
+yarn api-report && yarn api-docs
+```
+
+Next, let's fix the errors in your console, it shouldn't take long
 
 - `tsdoc-param-tag-missing-hyphen` wants `@param` JSDoc tags to look like
 
@@ -171,6 +202,103 @@ Let's fix the errors in your console, it shouldn't take long
 ```
 
 - `ae-missing-release-tag` wants everything that is exported to be marked as one of [four special JSDoc tags](https://api-extractor.com/pages/tsdoc/doc_comment_syntax/#release-tags) - `@public`, `@beta`, `@alpha` and `@internal` (in descending order of release maturity)
+
+## Configuring the rollup
+
+Make the following changes to your [`api-extractor.json`](../api-extractor.json) file
+
+```diff
+--- a/api-extractor.json
++++ b/api-extractor.json
+@@ -181,7 +181,7 @@
+     /**
+      * (REQUIRED) Whether to generate the .d.ts rollup file.
+      */
+-    "enabled": true
++    "enabled": true,
+
+     /**
+      * Specifies the output path for a .d.ts rollup file to be generated without any trimming.
+@@ -195,7 +195,7 @@
+      * SUPPORTED TOKENS: <projectFolder>, <packageName>, <unscopedPackageName>
+      * DEFAULT VALUE: "<projectFolder>/dist/<unscopedPackageName>.d.ts"
+      */
+-    // "untrimmedFilePath": "<projectFolder>/dist/<unscopedPackageName>.d.ts",
++    "untrimmedFilePath": "<projectFolder>/dist/<unscopedPackageName>-private.d.ts",
+
+     /**
+      * Specifies the output path for a .d.ts rollup file to be generated with trimming for a "beta" release.
+@@ -207,7 +207,7 @@
+      * SUPPORTED TOKENS: <projectFolder>, <packageName>, <unscopedPackageName>
+      * DEFAULT VALUE: ""
+      */
+-    // "betaTrimmedFilePath": "<projectFolder>/dist/<unscopedPackageName>-beta.d.ts",
++    "betaTrimmedFilePath": "<projectFolder>/dist/<unscopedPackageName>-beta.d.ts",
+
+     /**
+      * Specifies the output path for a .d.ts rollup file to be generated with trimming for a "public" release.
+@@ -221,7 +221,7 @@
+      * SUPPORTED TOKENS: <projectFolder>, <packageName>, <unscopedPackageName>
+      * DEFAULT VALUE: ""
+      */
+-    // "publicTrimmedFilePath": "<projectFolder>/dist/<unscopedPackageName>-public.d.ts",
++    "publicTrimmedFilePath": "<projectFolder>/dist/<unscopedPackageName>.d.ts"
+
+     /**
+      * When a declaration is trimmed, by default it will be replaced by a code comment such as
+```
+
+and re-run
+
+```sh
+yarn update-api-report && yarn api-docs
+```
+
+You should see some new declaration files in your `/dist` folder now
+
+- `professional-ts.d.ts` for your public API
+- `professional-ts-beta.d.ts` for your "beta" public API
+- `professional-ts-private.d.ts` for your private API
+
+You could edit your [`package.json`](../package.json) to point to the public API
+`.d.ts` rollup
+
+```diff
+--- a/package.json
++++ b/package.json
+@@ -63,6 +64,7 @@
+     "parcel-bundler": "^1.12.4",
+     "json-server": "^0.16.2"
+   },
++  "types": "dist/professional-ts.d.ts",
+   "name": "professional-ts",
+   "version": "0.0.0",
+   "description": "Mike's \"professional TypeScript\" course",
+```
+
+If a consumer wanted to use your "beta" api, they'd just have to make a small
+modification to their `tsconfig.json`
+
+```diff
+  "compilerOptions": {
++    "paths": {
++      "professional-ts": ["node_modules/professional-ts/dist/professional-ts-beta.d.ts"]
++    }
+  }
+```
+
+## Even more capability
+
+There are all sorts of other capabilities of api-extractor. For example
+
+- See what happens if your [`src/public-api-surface.ts`](../src/public-api-surface.ts) no longer exports `ITeam` -- you'd be told that you can't link to it in your documentation
+- See what happens if you forget to export an interface that's part of a public API signature
+
+You have a lot of control over what's surfaced in the api-report, vs. in the console,
+and what's regarded as a warning vs. error.
+
+All in all, this provides unparalleled visibility into how proposed code changes
+would have ramifications on the public API surface of a library.
 
 ---
 
