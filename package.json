@@ -6,7 +6,10 @@
     "test": "yarn test-jest && yarn test-tsd && yarn test-dtslint",
     "test-jest": "jest tests/components",
     "test-tsd": "tsd tests/types-tsd",
-    "test-dtslint": "dtslint tests/types-dtslint"
+    "test-dtslint": "dtslint tests/types-dtslint",
+    "update-api-report": "yarn api-report --local",
+    "api-report": "tsc -b tsconfig.apidocs.json && yarn api-extractor run",
+    "api-docs": "api-documenter markdown -i temp -o docs"
   },
   "devDependencies": {
     "@babel/plugin-proposal-class-properties": "^7.10.4",
@@ -61,6 +64,7 @@
     "parcel-bundler": "^1.12.4",
     "json-server": "^0.16.2"
   },
+  "types": "dist/professional-ts.d.ts",
   "name": "professional-ts",
   "version": "0.0.0",
   "description": "Mike's \"professional TypeScript\" course",

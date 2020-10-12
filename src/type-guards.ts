@@ -2,6 +2,14 @@
 /* eslint-disable @typescript-eslint/explicit-module-boundary-types */
 import { IChannel, IMessage, ITeam } from './types';
 
+/**
+ * Check whether a given value is an array where
+ * each member is of a specified type
+ *
+ * @param arr - array to check
+ * @param check - type guard to use when evaluating each item
+ * @public
+ */
 export function isTypedArray<T>(
   arr: unknown,
   check: (x: any) => x is T,
@@ -11,6 +19,11 @@ export function isTypedArray<T>(
   return true;
 }
 
+/**
+ * Check whether a given value is an {@link professional-ts#ITeam}
+ * @param arg - value to check
+ * @beta
+ */
 export function isTeam(arg: any): arg is ITeam {
   return (
     typeof arg.name === 'string' &&
@@ -19,6 +32,11 @@ export function isTeam(arg: any): arg is ITeam {
   );
 }
 
+/**
+ * Check whether a given value is an {@link professional-ts#IChannel}
+ * @param arg - value to check
+ * @beta
+ */
 export function isChannel(arg: any): arg is IChannel {
   return (
     typeof arg.teamId === 'string' &&
@@ -28,6 +46,11 @@ export function isChannel(arg: any): arg is IChannel {
   );
 }
 
+/**
+ * Check whether a given value is an {@link professional-ts#IMessage}
+ * @param arg - value to check
+ * @beta
+ */
 export function isMessage(arg: any): arg is IMessage {
   return (
     typeof arg.teamId === 'string' &&

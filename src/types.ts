@@ -1,5 +1,6 @@
 /**
  * A user participating in a chat
+ * @public
  */
 export interface IUser {
   id: number;
@@ -10,6 +11,7 @@ export interface IUser {
 
 /**
  * A chat message
+ * @public
  */
 export interface IMessage {
   id: number;
@@ -23,6 +25,7 @@ export interface IMessage {
 
 /**
  * A team, containing one or more chat channels
+ * @public
  */
 export interface ITeam {
   iconUrl: string;
@@ -33,6 +36,7 @@ export interface ITeam {
 
 /**
  * A chat channel, containing many chat messages
+ * @public
  */
 export interface IChannel {
   teamId: string;
