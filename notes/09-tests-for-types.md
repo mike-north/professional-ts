@@ -75,6 +75,42 @@ At the time of writing, it does not allow testing against multiple compiler vers
 
 Make sure your new `isTypedArray` generic user-defined type guard works
 
+For your `dtslint` tests, use the following config files
+
+#### `tsconfig.json`
+
+```json
+{
+  "extends": "../../tsconfig.json",
+  "compilerOptions": {
+    "lib": ["ES2018", "DOM"],
+    "strict": true,
+    "baseUrl": "../.."
+  },
+  "include": [".", "../../src"]
+}
+```
+
+#### `tslint.json`
+
+```json
+{
+  "extends": "dtslint/dtslint.json",
+  "rules": {
+    "no-relative-import-in-test": false,
+    "semicolon": true
+  }
+}
+```
+
+and run the command as follows
+
+```sh
+yarn dtslint tests/types-dtslint
+```
+
+For tsd
+
 ---
 
 <p align='right'>
