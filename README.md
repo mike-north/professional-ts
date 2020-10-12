@@ -67,3 +67,7 @@ By default, the app is served on https://localhost:1234.
 # Legal
 
 &copy; 2020 LinkedIn, All Rights Reserved
+
+## Licensing
+
+The code in this project is licensed as [BSD-2-Clause](https://opensource.org/licenses/BSD-2-Clause) license, and the written content in the ./notes folder is licensed under [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/)
