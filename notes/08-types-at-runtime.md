@@ -63,6 +63,6 @@ and then apply these guards for all files in the [`/src/data/`](../src/data) fol
 ---
 
 <p align='right'>
- <a href="./08-types-at-runtime.md">Next: Types at Runtime ▶</a>
+ <a href="./9-tests-for-types.md">Next:Tests For Types ▶</a>
 </p>
 ```

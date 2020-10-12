@@ -21,7 +21,7 @@ We need to do this for a couple of reasons:
 
 TL;DR: TypeScript professionals need to know BOTH. You won’t get away from dtslint yet because it’s still used for everything in DT, and it’s still the easiest way to guard against compatibility regressions.
 
-### dtslint
+### [`dtslint`](https://github.com/microsoft/dtslint)
 
 This is what’s used by DefinitelyTyped, and it effectively has 3 features
 
@@ -47,7 +47,7 @@ without early termination
 - MSFT uses this for DefinitelyTyped (read into this for stability)
 - Being built on top of a linter = you get lint-ish feedback in your editor
 
-### tsd
+### [`tsd`](https://github.com/SamVerschueren/tsd)
 
 This is “the new kid on the block”, but it’s my current favorite for basic typescript testing
 
@@ -109,11 +109,11 @@ and run the command as follows
 yarn dtslint tests/types-dtslint
 ```
 
-For tsd
+For tsd, make just make sure you follow the README carefully
 
 ---
 
 <p align='right'>
- <a href="./09-tests-for-types.md">Next: Tests for Types ▶</a>
+ <a href="./10-declaration-files.md">Next: Tests for Types ▶</a>
 </p>
 ```
