@@ -138,6 +138,6 @@ export async function apiCall(path: string, init?: RequestInit) {}
 ---
 
 <p align='right'>
- <a href="./03-app-vs-library-concerns.md">Next: App vs. Library Concerns ▶</a>
+ <a href="./08-types-at-runtime.md">Next: Types at Runtime ▶</a>
 </p>
 ```
