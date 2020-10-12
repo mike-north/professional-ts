@@ -22,7 +22,7 @@ Hi mike-north! You've successfully authenticated, but GitHub does not provide sh
 Connection to github.com closed.
 ```
 
-### Tools
+### Tools you MUST have installed
 
 Next, make sure you have installed [volta](http://volta.sh/) which ensures you have the right version of node and yarn for this project
 
