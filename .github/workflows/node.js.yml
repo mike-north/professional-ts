@@ -39,5 +39,7 @@ jobs:
       run: yarn
     - name: Build
       run: yarn build
+    - name: Build Docs
+      run: yarn api-report && yarn api-docs
     - name: Run tests
       run: yarn test

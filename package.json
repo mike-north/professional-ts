@@ -64,6 +64,7 @@
     "parcel-bundler": "^1.12.4",
     "json-server": "^0.16.2"
   },
+  "types": "dist/professional-ts.d.ts",
   "name": "professional-ts",
   "version": "0.0.0",
   "description": "Mike's \"professional TypeScript\" course",
