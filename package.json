@@ -6,9 +6,7 @@
     "test": "yarn test-jest",
     "test-jest": "jest tests/components",
     "test-tsd": "tsd tests/types-tsd",
-    "test-dtslint": "dtslint tests/types-dtslint",
-    "api-report": "tsc -b tsconfig.apidocs.json && yarn api-extractor run",
-    "api-docs": "api-documenter markdown"
+    "test-dtslint": "dtslint tests/types-dtslint"
   },
   "devDependencies": {
     "@babel/plugin-proposal-class-properties": "^7.10.4",
