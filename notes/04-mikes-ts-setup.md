@@ -17,7 +17,7 @@ mkdir my-lib
 cd my-lib
 ```
 
-Then, create a gitignore file
+Then, create a `.gitignore` file
 
 ```sh
 npx gitignore node
@@ -68,7 +68,7 @@ volta pin node yarn
 
 this will add `node` and `yarn` versions to your `package.json` automatically.
 
-Next, initialize the git repo
+Next, initialize the git repository
 
 ```sh
 git init
@@ -76,7 +76,7 @@ git init
 
 ## TypeScript Compiler
 
-install typescript as a dev dependency. We'll only need this at build
+install typescript as a development dependency. We'll only need this at build
 time, because not all consumers of this library may be using TypeScript
 themselves.
 
@@ -228,7 +228,7 @@ index.d.ts index.js
 
 ## Linting
 
-Install eslint as a dev dependency
+Install eslint as a development dependency
 
 ```sh
 yarn add -D eslint
@@ -661,7 +661,7 @@ Warning: You have changed the public API signature for this project. Please copy
 ```
 
 This is `api-extractor` telling you that something that users can observe
-through the public api surface of this library has changed. We can follow its instructions
+through the public API surface of this library has changed. We can follow its instructions
 to indicate that this was an _intentional change_ (and probably a minor release instead of a patch)
 
 ```sh

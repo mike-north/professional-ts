@@ -48,7 +48,7 @@ a tsconfig specifically for this.
 }
 ```
 
-and add this `.dist-types` folder to our gitignore
+and add this `.dist-types` folder to our `.gitignore`
 
 ```diff
 --- a/.gitignore
@@ -155,8 +155,8 @@ yarn api-extractor run --local
 
 You should see a few things happen
 
-- you now have a `/etc` folder containing a markdown api report
-- you have a `/temp` folder with a `.json` and `.md` version of your api report
+- you now have a `/etc` folder containing a markdown API report
+- you have a `/temp` folder with a `.json` and `.md` version of your API report
 - you'll see a bunch of warning messages in your console
 
 You'll want to commit that `/etc` folder -- it's the "human-approved" API surface that
@@ -276,7 +276,7 @@ You could edit your [`package.json`](../package.json) to point to the public API
    "description": "Mike's \"professional TypeScript\" course",
 ```
 
-If a consumer wanted to use your "beta" api, they'd just have to make a small
+If a consumer wanted to use your "beta" API, they'd just have to make a small
 modification to their `tsconfig.json`
 
 ```diff

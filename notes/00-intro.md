@@ -14,12 +14,12 @@ x = 'hello';
 
 Will make the TypeScript compiler unhappy, and that's the point!
 
-In a modern toolchain, the TypeScript compiler isn't even usually the
-thing emitting runnable JavaScript anymore (often that's Babel's job),
+In a modern tool chain, the TypeScript compiler isn't even usually the
+thing emitting runnable JavaScript any more (often that's Babel's job),
 so it can be thought of as a "very fancy linter", with some extra
 in-editor UX treats.
 
-### Who is this couse for?
+### Who is this course for?
 
 This course is intended for developers who are already familiar with TypeScript
 as a programming language, and are interested in learning more about how
@@ -30,14 +30,14 @@ to use it at scale, in libraries, and as a core part of large software projects.
 We'll cover a lot of ground in this course, but much of it will come back to a
 few central themes:
 
-#### Productivity through staiblity and automation
+#### Productivity through stability and automation
 
 - The whole point of TS is to allow you do more, and do it better. We'll learn how to make sure that it delivers on this promise
 - The bigger your team is, and the more critical your app is, the more costly disruptions can be. We'll learn how to avoid them
 
-#### Developer ergnomics, and a modern authoring environment
+#### Developer ergonomics, and a modern authoring environment
 
-- Part of the TS value proposition is the idea of a _fantastic dev environment_.
+- Part of the TS value proposition is the idea of a _fantastic development environment_.
   We'll learn how to make sure this is set up nicely so that it works well
   for even _very large_ apps.
 - We'll learn about how to use valuable (but oft neglected) features like API
@@ -46,7 +46,7 @@ few central themes:
 
 #### Release Confidence & Type Safety
 
-- TypeScript places a greater importance on productivy than 100% type safety.
+- TypeScript places a greater importance on productivity than 100% type safety.
   Compare this to [flow](https://flow.org), which has made a different choice
   > In type systems, soundness is the ability for a type checker to catch every single error that might happen at runtime. This comes at the cost of sometimes catching errors that will not actually happen at runtime.
   >
@@ -54,7 +54,7 @@ few central themes:
   >
   > In an ideal world, every type checker would be both sound and complete so that it catches every error that will happen at runtime.
   >
-  > Flow tries to be as sound and complete as possible. But because JavaScript was not designed around a type system, Flow sometimes has to make a tradeoff. When this happens Flow tends to favor soundness over completeness, ensuring that code doesn’t have any bugs. ([source](https://flow.org/en/docs/lang/types-and-expressions/#toc-soundness-and-completeness))
+  > Flow tries to be as sound and complete as possible. But because JavaScript was not designed around a type system, Flow sometimes has to make a trade-off. When this happens Flow tends to favor soundness over completeness, ensuring that code doesn’t have any bugs. ([source](https://flow.org/en/docs/lang/types-and-expressions/#toc-soundness-and-completeness))
 
 #### Take extra care where runtime and type-checking meet
 

@@ -31,7 +31,7 @@ In my [TS Fundamentals Course (v2)](https://drive.google.com/file/d/170oHzpLNepr
 
 Putting aside that the last image above is a bit redundant (with `"strict"` enabling `"strictNullChecks"`, `"strictFunctionTypes"` and `""strictNullChecks"` already), there's a lot of work to unpack here
 
-Realistically, this should be done in seperate steps for a large codebase
+Realistically, this should be done in separate steps for a large codebase
 
 For example:
 

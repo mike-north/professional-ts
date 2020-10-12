@@ -9,7 +9,7 @@
 TypeScript is a build-time-only tool, and this is part of why it performs well.
 The cost of a runtime type system is not trivial, and in browsers (particularly
 on limited-performance devices like cheap android phones) there's not a whole
-lot of perf to spare.
+lot of performance to spare.
 
 What we can do is take advantage of places where compile-time type-checking and
 runtime behavior align, to ensure that our static tools (like TS) provide

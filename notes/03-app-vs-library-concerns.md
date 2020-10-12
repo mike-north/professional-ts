@@ -13,7 +13,7 @@
 
 ## Most TS Codebases
 
-- **Improved developer experience**, including in-editor docs for your deps
+- **Improved developer experience**, including in-editor docs for your dependencies
 - **Reduced need to "drill into” files** to understand how adjacent code works
 - **Micro “rigor” that adds up to macro benefits**
   I can type things well-enough and let the system help me when I cross the threshold beyond which I “remember” what’s going on, and what types a particular value could be

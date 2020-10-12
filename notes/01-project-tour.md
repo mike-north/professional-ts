@@ -12,7 +12,7 @@ In this workshop we'll be working in the context of a simplified Slack app
 
 As we begin the course, it's written entirely in JavaScript, and is comprised of a few mostly stateless React components.
 
-The web client for this app lives in [`src/`](../src/), and is roughly orgainzed as
+The web client for this app lives in [`src/`](../src/), and is roughly organized as
 
 ```bash
 src/        # web client

@@ -160,7 +160,7 @@ add is definitely not a namespace, and
 import * as add from './calculator';
 ```
 
-WILL NOT WORK. There's a TS-specific pattern that _will work_ though -- it's a little wierd, but it doesn't require turining any compiler options on
+WILL NOT WORK. There's a TS-specific pattern that _will work_ though -- it's a little weird, but it doesn't require turning any compiler options on
 
 ```ts
 import add = require('./calculator');

@@ -17,7 +17,7 @@ Why declaration files exist
 
 ## When I might find myself working in a declaration file
 
-- Overriding something broken in a DT package
+- Overriding something broken in a DefinitelyTyped package
 - Typing runtime features that may not be totally standard (i.e., chrome/safari-specific APIs, a piece of code that might run in a Node.js sandbox)
 - Augmenting types with something more convenient (i.e., Object.keys returns a special string[])
 

@@ -19,7 +19,7 @@ We need to do this for a couple of reasons:
 
 ## Solutions to this problem
 
-TL;DR: TypeScript professionals need to know BOTH. You won’t get away from dtslint yet because it’s still used for everything in DT, and it’s still the easiest way to guard against compatibility regressions.
+TL;DR: TypeScript professionals need to know BOTH. You won’t get away from dtslint yet because it’s still used for everything in DefinitelyTyped, and it’s still the easiest way to guard against compatibility regressions.
 
 ### [`dtslint`](https://github.com/microsoft/dtslint)
 
@@ -38,13 +38,13 @@ without early termination
 
 - **SETUP** - It’s very particular about how it’s set up, and you end up doing things “just because the tool wants you to do it that way” (i.e., the index.d.ts)
 - **STRINGIFIED TYPES** - The \$ExpectType assertion is based on stringified types, which can change across compiler versions (i.e., `string|number` vs `number | string`)
-- **BUILT ON TOP OF TSLINT** - The linter it’s built on top of is tslint, which is now deprecated in favor of ESLint. We’ll talk about the difference later, but it’s not great to be so entangled with something that’s on its way outP
+- **BUILT ON TOP OF TSLINT** - The linter it’s built on top of is tslint, which is now deprecated in favor of ESLint. We’ll talk about the difference later, but it’s not great to be so entangled with something that’s on its way out
 
 #### Benefits
 
 - Automatically downloads compiler versions and caches them
 - Tests against nightly TS builds
-- MSFT uses this for DefinitelyTyped (read into this for stability)
+- Microsoft uses this for DefinitelyTyped (read into this for stability)
 - Being built on top of a linter = you get lint-ish feedback in your editor
 
 ### [`tsd`](https://github.com/SamVerschueren/tsd)
