@@ -2,6 +2,12 @@ import * as React from 'react';
 import { IChannel, ITeam } from '../../types';
 import ChannelLink from './TeamSidebar/ChannelLink';
 
+/**
+ * Team Sidebar
+ *
+ * @public
+ * @param param0 - props
+ */
 const TeamSidebar: React.FunctionComponent<{ team: ITeam }> = ({
   team,
 }) => {

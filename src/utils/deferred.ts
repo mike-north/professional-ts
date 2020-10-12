@@ -1,6 +1,18 @@
+/**
+ * @public
+ */
 export type ResolveHandler<T> = (value: T | PromiseLike<T>) => void;
+/**
+ * @public
+ */
 export type RejectHandler = (reason: unknown) => void;
 
+/**
+ * An "inverted" promise, that can be resolved
+ * from the outside
+ *
+ * @public
+ */
 class Deferred<T> {
   #_promise: Promise<T>;
   #_resolve!: ResolveHandler<T>;

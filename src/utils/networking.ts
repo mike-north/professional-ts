@@ -2,9 +2,11 @@ import { stringifyError } from './error';
 import HTTPError from './http-error';
 
 /**
+ * Make a GET request, and decode the response body as JSON
  *
- * @param input
- * @param init
+ * @param input - request info
+ * @param init - request options
+ * @internal
  */
 async function getJSON(input: RequestInfo, init?: RequestInit) {
   try {
@@ -24,9 +26,11 @@ async function getJSON(input: RequestInfo, init?: RequestInit) {
 }
 
 /**
+ * Make a same-origin GET request to the API
  *
- * @param path
- * @param init
+ * @param path - API path
+ * @param init - fetch options
+ * @public
  */
 export async function apiCall(
   path: string,
