@@ -1,7 +1,5 @@
-export type ResolveHandler<T> = (
-  value?: T | PromiseLike<T> | undefined,
-) => void;
-export type RejectHandler = (reason?: unknown) => void;
+export type ResolveHandler<T> = (value: T | PromiseLike<T>) => void;
+export type RejectHandler = (reason: unknown) => void;
 
 class Deferred<T> {
   #_promise: Promise<T>;

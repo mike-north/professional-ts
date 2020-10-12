@@ -4,7 +4,7 @@ import { IChannel, IMessage, ITeam } from './types';
 
 export function isTypedArray<T>(
   arr: unknown,
-  check: (x: T) => x is T,
+  check: (x: any) => x is T,
 ): arr is T[] {
   if (!Array.isArray(arr)) return false;
   if (arr.some((item) => !check(item))) return false;
