@@ -11,7 +11,10 @@
     "eslint:recommended",
     "prettier",
     "plugin:promise/recommended",
-    "plugin:sonarjs/recommended"
+    "plugin:sonarjs/recommended",
+    "prettier/@typescript-eslint",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:@typescript-eslint/recommended-requiring-type-checking"
   ],
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
@@ -64,6 +67,14 @@
         "postcss.config.js",
         "server/**/*.js"
       ],
+      "rules": {
+        "@typescript-eslint/no-unsafe-member-access": "off",
+        "@typescript-eslint/no-unsafe-assignment": "off",
+        "@typescript-eslint/no-unsafe-call": "off",
+        "@typescript-eslint/unbound-method": "off",
+        "@typescript-eslint/no-unsafe-return": "off",
+        "@typescript-eslint/no-var-requires": "off"
+      },
       "env": { "commonjs": true, "node": true }
     },
     /**
