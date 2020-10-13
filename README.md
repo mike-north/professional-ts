@@ -62,7 +62,7 @@ yarn dev
 
 Changing any files in the `src` folder will result in an incremental rebuild, and a refresh of the screen.
 
-By default, the app is served on https://localhost:1234.
+By default, the app is served on http://localhost:1234.
 
 # Legal
 
