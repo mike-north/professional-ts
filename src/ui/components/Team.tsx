@@ -3,7 +3,7 @@ import { Route, Switch } from 'react-router-dom';
 import SelectedChannel from './SelectedChannel';
 import TeamSidebar from './TeamSidebar';
 
-const Team  = ({ team }) => {
+const Team: React.FunctionComponent<any> = ({ team }) => {
   console.log(
     `%c TEAM render: ${team.name}`,
     'background-color: blue; color: white',

@@ -12,7 +12,7 @@ import TeamSelector from './components/TeamSelector';
 
 const { useState } = React;
 
-const App = () => {
+const App: React.FunctionComponent<any> = () => {
   const [teams, setTeams] = useState();
 
   useAsyncDataEffect(() => getAllTeams(), {
