@@ -24,12 +24,7 @@ export interface IMessage {
 /**
  * A team, containing one or more chat channels
  */
-export interface ITeam {
-  iconUrl: string;
-  name: string;
-  id: string;
-  channels: IChannel[];
-}
+export type ITeam = any;
 
 /**
  * A chat channel, containing many chat messages
