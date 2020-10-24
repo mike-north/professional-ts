@@ -14,8 +14,8 @@
     "@babel/preset-react": "^7.10.4",
     "@babel/preset-typescript": "^7.10.4",
     "@fullhuman/postcss-purgecss": "^3.0.0",
-    "@microsoft/api-documenter": "^7.9.4",
-    "@microsoft/api-extractor": "^7.10.1",
+    "@microsoft/api-documenter": "^7.9.16",
+    "@microsoft/api-extractor": "^7.10.4",
     "@types/express": "^4.17.8",
     "@types/jest": "^26.0.14",
     "@types/react": "^16.9.50",
@@ -58,8 +58,8 @@
   },
   "dependencies": {
     "express": "^4.17.1",
-    "parcel-bundler": "^1.12.4",
-    "json-server": "^0.16.2"
+    "json-server": "^0.16.2",
+    "parcel-bundler": "^1.12.4"
   },
   "name": "professional-ts",
   "version": "0.0.0",
