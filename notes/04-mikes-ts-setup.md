@@ -428,8 +428,8 @@ We'll need to make a one-line change in our existing `/tsconfig.json` file
 +++ b/tsconfig.json
 @@ -1,4 +1,5 @@
  {
-+  "composite": true,
    "compilerOptions": {
++    "composite": true,
 ```
 
 and to create a small `tests/tsconfig.json` just for our tests
