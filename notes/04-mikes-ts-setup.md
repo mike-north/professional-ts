@@ -343,7 +343,7 @@ test files compared to our source files
 +  },
 +  "overrides": [
 +    {
-+      "files": "test/**/*.ts",
++      "files": "tests/**/*.ts",
 +      "env": { "node": true, "jest": true }
 +    }
 +  ]
