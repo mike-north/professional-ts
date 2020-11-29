@@ -76,5 +76,8 @@
       "!**/vendor/**",
       "!server/**"
     ]
+  },
+  "resolutions": {
+    "node-forge": "^0.10.0"
   }
 }
