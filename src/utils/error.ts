@@ -5,7 +5,7 @@
  * @param {Error} err - The error to stringify
  * @return {string}
  */
-function stringifyErrorValue(err: Error) {
+function stringifyErrorValue(err: Error): string {
   return `${err.name.toUpperCase()}: ${err.message}
   ${err.stack || '(no stack trace information)'}`;
 }
@@ -18,12 +18,12 @@ function stringifyErrorValue(err: Error) {
  *
  * @return {string}
  */
-export function stringifyError(errorDescription: string, err: any) {
+export function stringifyError(errorDescription: string, err: unknown): string {
   return `${errorDescription}\n${
     err instanceof Error
       ? stringifyErrorValue(err)
       : err
-      ? `${err}`
-      : '(missing error information)'
+        ? `${err}`
+        : '(missing error information)'
   }`;
 }

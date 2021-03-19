@@ -3,13 +3,16 @@ import HTTPError from './http-error';
 
 /**
  *
- * @param {RequestInfo} input
- * @param {RequestInit} [init]
+ * @param input - awkdlha
+ * @param init - adlkjhwlkadhaw
  */
-async function getJSON(input: RequestInfo, init?: RequestInit) {
+async function getJSON(input: RequestInfo, init?: RequestInit): Promise<{
+  response: Response;
+  json: unknown;
+}> {
   try {
     const response = await fetch(input, init);
-    const responseJSON = await response.json();
+    const responseJSON: unknown = await response.json();
     return { response, json: responseJSON };
   } catch (err) {
     throw new Error(
@@ -25,10 +28,10 @@ async function getJSON(input: RequestInfo, init?: RequestInit) {
 
 /**
  *
- * @param {string} path
- * @param {RequestInit} [init]
+ * @param path
+ * @param init
  */
-export async function apiCall(path: string, init?: RequestInit): Promise<any> {
+export async function apiCall(path: string, init?: RequestInit): Promise<unknown> {
   let response;
   let json;
   try {

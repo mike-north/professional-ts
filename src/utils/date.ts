@@ -6,6 +6,6 @@ import { format } from 'date-fns';
  *
  * @return {string}
  */
-export function formatTimestamp(date: Date) {
+export function formatTimestamp(date: Date): string {
   return format(date, 'MMM dd, yyyy HH:MM:SS a');
 }

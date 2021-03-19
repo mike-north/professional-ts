@@ -12,15 +12,15 @@ import Deferred from './deferred';
   }} options 
   @return {void}
  */
-export function useAsyncDataEffect(getData: () => Promise<any>, options: {
+export function useAsyncDataEffect<T>(getData: () => Promise<T>, options: {
     stateName: string;
     otherStatesToMonitor?: unknown[];
-    setter: (arg: any) => void;
-  }) {
+    setter: (arg: T) => void;
+  }): void {
   let cancelled = false;
   const { setter, stateName } = options;
   useEffect(() => {
-    const d = new Deferred();
+    const d = new Deferred<T>();
 
     getData()
       .then((jsonData) => {
@@ -30,7 +30,7 @@ export function useAsyncDataEffect(getData: () => Promise<any>, options: {
       .catch(d.reject);
 
     d.promise
-      .then((data: any) => {
+      .then((data) => {
         if (!cancelled) {
           console.info(
             '%c Updating state: ' + stateName,

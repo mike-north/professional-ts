@@ -13,7 +13,7 @@ import TeamSelector from './components/TeamSelector';
 
 const { useState } = React;
 
-const App = () => {
+const App = (): JSX.Element => {
   const [teams, setTeams] = useState<ITeam[] | undefined>();
 
   useAsyncDataEffect(() => getAllTeams(), {

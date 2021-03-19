@@ -83,6 +83,13 @@
         "@typescript-eslint/no-unsafe-return": "off",
         "@typescript-eslint/no-explicit-any": "off"
       }
+    }, {
+      "files": ["src/utils/**/*.{ts,tsx}"],
+      "rules": {
+        "@typescript-eslint/no-unsafe-assignment": "error",
+        "@typescript-eslint/no-unsafe-return": "error",
+        "@typescript-eslint/no-explicit-any": "error"
+      }
     },
     /**
      * TESTS
