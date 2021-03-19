@@ -48,8 +48,7 @@
       },
       "extends": [
         "eslint:recommended",
-        "plugin:react/recommended",
-        "prettier/react"
+        "plugin:react/recommended"
       ]
     },
     /**
@@ -72,7 +71,6 @@
     {
       "files": ["{src,tests}/**/*.{ts,tsx}"],
       "extends": [
-        "prettier/@typescript-eslint",
         "plugin:@typescript-eslint/recommended",
         "plugin:@typescript-eslint/recommended-requiring-type-checking"
       ],
