@@ -2,7 +2,7 @@
 
 exports[`Link changes the class when hovered 1`] = `
 <h1>
-  Loading messages
+  No messages
   ...
 </h1>
 `;
