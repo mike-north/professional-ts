@@ -7,7 +7,7 @@
     "forceConsistentCasingInFileNames": true,
     "noEmit": true,
     "outDir": "dist",
-    "noImplicitAny": false,
+    "noImplicitAny": true,
     "declaration": true,
     "jsx": "react",
     "moduleResolution": "Node"
