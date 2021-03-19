@@ -10,7 +10,11 @@
     "noImplicitAny": true,
     "declaration": true,
     "jsx": "react",
-    "moduleResolution": "Node"
+    "moduleResolution": "Node",
+    "noUnusedLocals": true,
+    "noImplicitReturns": true,
+    "stripInternal": true,
+    "types": ["jest"]
   },
   "include": ["src", "tests"]
 }

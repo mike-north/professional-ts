@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { IMessage, IUser } from '../../../types';
+import { IUser } from '../../../types';
 import { formatTimestamp } from '../../../utils/date';
 
 interface IMessageProps {

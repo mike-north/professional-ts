@@ -2,9 +2,7 @@ import * as React from 'react';
 import { IChannel } from '../../../types';
 
 export interface IFooter {
-  channel: {
-    name: string;
-  };
+  channel: Pick<IChannel, 'name'>;
 }
 
 const Footer: React.FunctionComponent<IFooter> = ({
