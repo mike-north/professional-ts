@@ -12,5 +12,5 @@
     "jsx": "react",
     "moduleResolution": "Node"
   },
-  "include": ["src"]
+  "include": ["src", "tests"]
 }

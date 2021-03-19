@@ -11,7 +11,7 @@ const Channel = ({
   channel,
 }) => {
 
-  const [messages, setMessages] = React.useState();
+  const [messages, setMessages] = React.useState([] as any[]);
   useAsyncDataEffect(
     () => getChannelMessages(channel.teamId, channel.id),
     {

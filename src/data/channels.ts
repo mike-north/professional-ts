@@ -1,14 +1,8 @@
 import { apiCall } from '../utils/networking';
 
-interface IChannel {
+const cachedChannelRecords = {};
 
-}
-
-const cachedChannelRecords: {
-  [channelId: string]: IChannel;
-} = {};
-
-export async function getChannelById(id: string): Promise<IChannel> {
+export async function getChannelById(id)  {
   let cached = cachedChannelRecords[id];
   if (typeof cached !== 'undefined') return await cached;
   cached = cachedChannelRecords[id] = apiCall(`Channels/${id}`);
