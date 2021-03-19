@@ -1,7 +1,8 @@
 import * as React from 'react';
+import { IChannel } from '../../types';
 import Channel from './Channel';
 
-const SelectedChannel = ({ match, channels }) => {
+const SelectedChannel: React.FunctionComponent<any> = ({ match, channels }) => {
   if (!channels) throw new Error('no channels');
   if (!match) throw new Error('no match');
 
@@ -10,7 +11,8 @@ const SelectedChannel = ({ match, channels }) => {
   const { channelId: selectedChannelId } = params;
   if (!selectedChannelId) return <p>Invalid channelId</p>;
   const selectedChannel = channels.find(
-    (c) => c.id === selectedChannelId,
+    // TODO: shouldn't need this type annotation forever
+    (c: IChannel) => c.id === selectedChannelId,
   );
   if (!selectedChannel)
     return (

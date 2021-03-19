@@ -6,7 +6,7 @@ import HTTPError from './http-error';
  * @param {RequestInfo} input
  * @param {RequestInit} [init]
  */
-async function getJSON(input, init) {
+async function getJSON(input: RequestInfo, init?: RequestInit) {
   try {
     const response = await fetch(input, init);
     const responseJSON = await response.json();

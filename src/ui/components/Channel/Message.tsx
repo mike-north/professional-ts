@@ -1,7 +1,18 @@
 import * as React from 'react';
+import { IMessage, IUser } from '../../../types';
 import { formatTimestamp } from '../../../utils/date';
 
-const Message = ({ user, date, body }) => (
+interface IMessageProps {
+  user: IUser;
+  date: Date;
+  body: string;
+}
+
+const Message: React.FunctionComponent<IMessageProps> = ({
+  user,
+  date,
+  body,
+}) => (
   <div
     className="flex items-start px-6 py-2 text-sm hover-target hover:bg-gray-100 message"
     role="listitem"
