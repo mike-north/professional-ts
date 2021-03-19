@@ -139,7 +139,7 @@ and this change to tsconfig for step 1
 
 ## Other tips
 
-- Most react components can be typed as `React:FunctionComponent<any>`
+- Most react components can be typed as `React.FunctionComponent<any>`
 
 ---
 

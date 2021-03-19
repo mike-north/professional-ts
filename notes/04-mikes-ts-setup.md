@@ -518,7 +518,7 @@ up and make the following changes
     * SUPPORTED TOKENS: <projectFolder>, <packageName>, <unscopedPackageName>
     */
 -  "mainEntryPointFilePath": "<projectFolder>/lib/index.d.ts",
-+  "mainEntryPointFilePath": "<projectFolder>/dist/index.d.ts",^M
++  "mainEntryPointFilePath": "<projectFolder>/dist/index.d.ts",
 
    /**
     * A list of NPM package names whose exports should be treated as part of this package.
@@ -527,7 +527,7 @@ up and make the following changes
       * (REQUIRED) Whether to generate the .d.ts rollup file.
       */
 -    "enabled": true
-+    "enabled": true,^M
++    "enabled": true,
 
      /**
       * Specifies the output path for a .d.ts rollup file to be generated without any trimming.
