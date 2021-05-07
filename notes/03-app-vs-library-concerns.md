@@ -1,5 +1,5 @@
 <p align='left'>
- <a href="./02-recent-ts-features.md">Next: Recent TS Language Features ▶</a>
+ <a href="./02-recent-ts-features.md">◀ Back: Recent TS Language Features</a>
 </p>
 
 ---
