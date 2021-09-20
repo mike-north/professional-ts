@@ -1,13 +1,13 @@
 /**
  * @enum {number}
  */
-export const HTTPErrorKind = {
-  Information: 100,
-  Success: 200,
-  Redirect: 300,
-  Client: 400,
-  Server: 500,
-};
+export enum HTTPErrorKind {
+  Information = 100,
+  Success = 200,
+  Redirect = 300,
+  Client = 400,
+  Server = 500,
+}
 
 /**
  *
@@ -25,12 +25,14 @@ function determineKind(status) {
 
 /** @param {HTTPErrorKind} kind */
 export default class HTTPError extends Error {
+  kind;
+
   /**
    *
-   * @param {Response} info
-   * @param {string} message
+   * @param info
+   * @param message
    */
-  constructor(info, message) {
+  constructor(info: Response, message: string) {
     super(
       `HTTPError [status: ${info.statusText} (${info.status})]\n${message}`,
     );

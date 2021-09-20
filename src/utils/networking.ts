@@ -6,7 +6,7 @@ import HTTPError from './http-error';
  * @param {RequestInfo} input
  * @param {RequestInit} [init]
  */
-async function getJSON(input, init) {
+async function getJSON(input: RequestInfo, init?: RequestInit) {
   try {
     const response = await fetch(input, init);
     const responseJSON = await response.json();
@@ -25,10 +25,10 @@ async function getJSON(input, init) {
 
 /**
  *
- * @param {string} path
- * @param {RequestInit} [init]
+ * @param path
+ * @param init
  */
-export async function apiCall(path, init) {
+export async function apiCall(path: string, init?: RequestInit) {
   let response;
   let json;
   try {

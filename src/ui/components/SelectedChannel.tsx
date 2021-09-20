@@ -1,7 +1,7 @@
 import * as React from 'react';
 import Channel from './Channel';
 
-const SelectedChannel = ({ match, channels }) => {
+const SelectedChannel: React.FunctionComponent<any> = ({ match, channels }) => {
   if (!channels) throw new Error('no channels');
   if (!match) throw new Error('no match');
 

@@ -1,7 +1,7 @@
 import * as React from 'react';
 import Team from './Team';
 
-const SelectedTeam = ({ match, teams }) => {
+const SelectedTeam: React.FunctionComponent<any> = ({ match, teams }) => {
   if (!match) throw new Error('no match');
 
   const { params } = match;

@@ -1,7 +1,7 @@
 import * as React from 'react';
 import ChannelLink from './TeamSidebar/ChannelLink';
 
-const TeamSidebar = ({ team }) => {
+const TeamSidebar: React.FunctionComponent<any> = ({ team }) => {
   return (
     <section className="team-sidebar h-full bg-indigo-800 text-purple-300 flex-none md:w-64 sm:w-48 pb-6 flex flex-col">
       <header className="team-sidebar__header text-white mb-2 mt-3 px-4 flex justify-between">
