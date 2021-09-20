@@ -12,7 +12,14 @@ import Deferred from './deferred';
   }} options 
   @return {void}
  */
-export function useAsyncDataEffect(getData, options) {
+export function useAsyncDataEffect(
+  getData: () => Promise<any>,
+  options: {
+    stateName: string;
+    otherStatesToMonitor?: unknown[];
+    setter: (arg: any) => void;
+  },
+): void {
   let cancelled = false;
   const { setter, stateName } = options;
   useEffect(() => {
@@ -26,10 +33,10 @@ export function useAsyncDataEffect(getData, options) {
       .catch(d.reject);
 
     d.promise
-      .then((data) => {
+      .then((data: any) => {
         if (!cancelled) {
           console.info(
-            '%c Updating state: ' + stateName,
+            `%c Updating state: ${stateName}`,
             'background: green; color: white; display: block;',
           );
           setter(data);

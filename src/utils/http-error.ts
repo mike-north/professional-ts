@@ -14,7 +14,7 @@ export enum HTTPErrorKind {
  * @param {number} status
  * @return {HTTPErrorKind}
  */
-function determineKind(status) {
+function determineKind(status: any) {
   if (status >= 100 && status < 200) return HTTPErrorKind.Information;
   else if (status < 300) return HTTPErrorKind.Success;
   else if (status < 400) return HTTPErrorKind.Redirect;
