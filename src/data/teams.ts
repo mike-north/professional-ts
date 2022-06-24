@@ -1,6 +1,6 @@
 import { apiCall } from '../utils/networking';
 
-let cachedAllTeamsList;
+let cachedAllTeamsList: Promise<any[]>;
 export async function getAllTeams() {
   if (typeof cachedAllTeamsList === 'undefined')
     cachedAllTeamsList = apiCall('teams');
@@ -8,7 +8,7 @@ export async function getAllTeams() {
   return await cachedAllTeamsList;
 }
 
-const cachedTeamRecords = {};
+const cachedTeamRecords: Record<string, any> = {};
 
 export async function getTeamById(id) {
   let cached = cachedTeamRecords[id];

@@ -1,6 +1,6 @@
 import { apiCall } from '../utils/networking';
 
-const cachedMessageRecordArrays = {};
+const cachedMessageRecordArrays: Record<string, any> = {};
 
 export async function getChannelMessages(teamId, channelId) {
   let cached = cachedMessageRecordArrays[channelId];
