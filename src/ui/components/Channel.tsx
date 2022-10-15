@@ -7,7 +7,7 @@ import ChannelMessage from './Channel/Message';
 import Loading from './Loading';
 
 
-const Channel = ({
+const Channel: React.FC<any> = ({
   channel,
 }) => {
 
