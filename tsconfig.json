@@ -14,7 +14,11 @@
     "outDir": "dist",
     "declaration": true,
     "jsx": "react",
-    "moduleResolution": "Node"
+    "moduleResolution": "Node",
+    "baseUrl": ".",
+    "paths":{
+      "*":["types/*"]
+    }
   },
   "include": ["src"]
 }
