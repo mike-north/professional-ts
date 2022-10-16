@@ -3,9 +3,9 @@ import { apiCall } from '../utils/networking';
 let cachedAllTeamsList: Record<string,any>;
 export async function getAllTeams() {
   if (typeof cachedAllTeamsList === 'undefined')
-    cachedAllTeamsList = apiCall('teams');
+    cachedAllTeamsList = await apiCall('teams');
 
-  return await cachedAllTeamsList;
+  return cachedAllTeamsList;
 }
 
 const cachedTeamRecords: Record<string,any> = {};
